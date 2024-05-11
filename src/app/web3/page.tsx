@@ -10,10 +10,7 @@ import { AddressInput } from "~/components/ui/addressInput";
 import { useReadContract, useSendTransaction } from "wagmi";
 import { erc721Abi, isAddress, parseEther } from "viem";
 import { useState } from "react";
-
-export function truncateAddress(address: string, length = 8) {
-  return `${address.slice(0, length)}...${address.slice(-length)}`;
-}
+import { truncateAddress } from "~/utils/truncateAddress";
 
 export default function Component() {
   const NFTURI = useReadContract({

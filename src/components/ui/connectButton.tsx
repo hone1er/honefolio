@@ -1,11 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
-import { useAccount, useEnsAddress, useEnsAvatar, useEnsName } from "wagmi";
-import { truncateAddress } from "~/app/web3/page";
+import { useAccount, useEnsAvatar, useEnsName } from "wagmi";
 import { Button } from "./button";
-import useEnsProfile from "~/hooks/useEnsProfile";
 import Image from "next/image";
+import { truncateAddress } from "~/utils/truncateAddress";
 
 export function ConnectButton() {
   const { open } = useWeb3Modal();
