@@ -2,7 +2,6 @@
 
 import { createWeb3Modal } from "@web3modal/wagmi/react";
 import { defaultWagmiConfig } from "@web3modal/wagmi/react/config";
-
 import { State, WagmiProvider } from "wagmi";
 import { arbitrum, mainnet } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -14,7 +13,7 @@ interface Props extends PropsWithChildren {
 const queryClient = new QueryClient();
 
 // 1. Get projectId at https://cloud.walletconnect.com
-const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "";
 
 // 2. Create wagmiConfig
 const metadata = {
@@ -27,7 +26,7 @@ const metadata = {
 const chains = [mainnet, arbitrum] as const;
 const config = defaultWagmiConfig({
   chains,
-  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "",
+  projectId: projectId,
   metadata,
   ssr: true,
 });
@@ -35,7 +34,7 @@ const config = defaultWagmiConfig({
 // 3. Create modal
 createWeb3Modal({
   wagmiConfig: config,
-  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "",
+  projectId: projectId,
   enableAnalytics: false, // Optional - defaults to your Cloud configuration
   enableOnramp: true,
 });
