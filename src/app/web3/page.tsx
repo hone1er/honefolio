@@ -5,20 +5,13 @@ import { Button } from "~/components/ui/button";
 import { CardContent, Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import Image from "next/image";
-
 import { AddressInput } from "~/components/ui/addressInput";
-import { useReadContract, useSendTransaction } from "wagmi";
-import { erc721Abi, isAddress, parseEther } from "viem";
+import { useSendTransaction } from "wagmi";
+import { isAddress, parseEther } from "viem";
 import { useState } from "react";
-import { truncateAddress } from "~/utils/truncateAddress";
+import truncateAddress from "~/utils/truncateAddress";
 
 export default function Component() {
-  const NFTURI = useReadContract({
-    address: "0x42069ABFE407C60cf4ae4112bEDEaD391dBa1cdB",
-    abi: erc721Abi,
-    functionName: "tokenURI",
-    args: [BigInt(730)],
-  });
   const [to, setTo] = useState("");
 
   const { data: hash, sendTransaction } = useSendTransaction();

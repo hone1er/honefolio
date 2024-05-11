@@ -3,8 +3,8 @@ import { useState } from "react";
 import { isAddress } from "viem";
 import Image from "next/image";
 import useEnsProfile from "~/hooks/useEnsProfile";
-import { truncateAddress } from "~/app/web3/page";
 import { Input } from "./input";
+import truncateAddress from "~/utils/truncateAddress";
 
 interface AddressInputProps extends React.HTMLProps<HTMLInputElement> {
   onRecipientChange: (address: string, isValid: boolean) => void;

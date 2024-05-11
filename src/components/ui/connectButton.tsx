@@ -4,7 +4,7 @@ import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { useAccount, useEnsAvatar, useEnsName } from "wagmi";
 import { Button } from "./button";
 import Image from "next/image";
-import { truncateAddress } from "~/utils/truncateAddress";
+import truncateAddress from "~/utils/truncateAddress";
 
 export function ConnectButton() {
   const { open } = useWeb3Modal();
