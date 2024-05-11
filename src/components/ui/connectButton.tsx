@@ -1,14 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
-import { useAccount } from "wagmi";
+import { useAccount, useEnsAddress, useEnsAvatar, useEnsName } from "wagmi";
 import { truncateAddress } from "~/app/web3/page";
 import { Button } from "./button";
+import useEnsProfile from "~/hooks/useEnsProfile";
+import Image from "next/image";
 
 export function ConnectButton() {
   const { open } = useWeb3Modal();
   const { address, isConnected, isConnecting } = useAccount();
   const [loading, setLoading] = useState(true);
+  const { data: ensName } = useEnsName({ address: address, chainId: 1 });
+  const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? "", chainId: 1 });
 
   useEffect(() => {
     if (address !== undefined || isConnected !== undefined) {
@@ -28,8 +32,18 @@ export function ConnectButton() {
   if (isConnected && address) {
     return (
       <Button size="lg" onClick={() => open()}>
-        <WalletIcon className="mr-2 h-4 w-4" />
-        {truncateAddress(address, 5)}
+        {ensAvatar ? (
+          <Image
+            src={ensAvatar}
+            alt="Avatar"
+            width={24}
+            height={24}
+            className="mr-2 rounded-full"
+          />
+        ) : (
+          <WalletIcon className="mr-2 h-4 w-4" />
+        )}
+        {ensName ?? truncateAddress(address, 5)}
       </Button>
     );
   }

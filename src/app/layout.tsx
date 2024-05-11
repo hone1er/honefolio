@@ -32,6 +32,18 @@ export default function RootLayout({
               >
                 Home
               </Link>
+              <Link
+                className="text-sm font-medium hover:text-[#ffd700]"
+                href="/web3"
+              >
+                Web3
+              </Link>
+              <Link
+                className="text-sm font-medium hover:text-[#ffd700]"
+                href="/open-source"
+              >
+                Open Source
+              </Link>
             </nav>
           </header>
           <Web3Provider>{children}</Web3Provider>

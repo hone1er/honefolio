@@ -45,8 +45,9 @@ export const AddressInput = ({
         type="text"
         placeholder="0x..."
         disabled={disabled}
-        className="relative z-40 min-h-10 w-full bg-white"
+        className={`relative z-40 min-h-10 w-full bg-white ${rawTokenAddress.length > 0 && isValidToAddress ? "border-green-500" : rawTokenAddress.length > 0 && !isValidToAddress ? "border-red-500" : "border-auto"} rounded-t-[8px]  px-4 py-2 transition-all duration-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50`}
         value={rawTokenAddress}
+        name="address"
         onChange={(e) => handleToAdressInput(e.target.value)}
       />
 

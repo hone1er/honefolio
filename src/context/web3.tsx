@@ -27,14 +27,15 @@ const metadata = {
 const chains = [mainnet, arbitrum] as const;
 const config = defaultWagmiConfig({
   chains,
-  projectId,
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "",
   metadata,
+  ssr: true,
 });
 
 // 3. Create modal
 createWeb3Modal({
   wagmiConfig: config,
-  projectId,
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "",
   enableAnalytics: false, // Optional - defaults to your Cloud configuration
   enableOnramp: true,
 });
