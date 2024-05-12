@@ -31,7 +31,7 @@ export default function Component() {
               </Link>
             </div>
           </div>
-          {/* <div className="container grid items-center justify-center gap-4 px-4 pt-24 text-center md:px-6 lg:gap-10">
+          <div className="container grid items-center justify-center gap-4 px-4 pt-24 text-center md:px-6 lg:gap-10">
             <div className="grid w-full grid-cols-2 items-center justify-center gap-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-12 xl:grid-cols-6">
               <div className="flex flex-col items-center gap-2">
                 <img
@@ -139,7 +139,7 @@ export default function Component() {
                 </p>
               </div>
             </div>
-          </div> */}
+          </div>
         </section>
         <section
           className="w-full bg-[#1e1e1e] py-12 md:py-24 lg:py-32"
@@ -163,9 +163,9 @@ export default function Component() {
                 <div className="grid grid-cols-2 gap-4">
                   <Link
                     className="inline-flex h-10 items-center justify-center rounded-md bg-[#ffd700] px-4 text-sm font-medium text-[#1e1e1e] shadow transition-colors hover:bg-[#ffb700] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ffd700] disabled:pointer-events-none disabled:opacity-50"
-                    href="#"
+                    href="/web3"
                   >
-                    View All
+                    Web3 Demo
                   </Link>
                   <Link
                     className="inline-flex h-10 items-center justify-center rounded-md border border-[#ffd700] bg-transparent px-4 text-sm font-medium text-[#ffd700] shadow-sm transition-colors hover:bg-[#ffd700] hover:text-[#1e1e1e] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ffd700] disabled:pointer-events-none disabled:opacity-50"
@@ -259,6 +259,35 @@ export default function Component() {
             </div>
           </div>
         </section>
+        {/* <section className="w-full bg-[#2d2d2d] text-white py-12 md:py-24 lg:py-32"> 
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <div className="inline-block rounded-lg bg-[#1e1e1e] px-3 py-1 text-sm">
+                    web3
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                    Crypto & Web3 Development
+                  </h2>
+                  <p className="max-w-[600px] text-gray-300 md:text-xl">
+                    I build decentralized applications and contribute to the
+                    blockchain ecosystem. Click the button below to try out a demo!
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <Link
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-[#ffd700] px-4 text-sm font-medium text-[#1e1e1e] shadow transition-colors hover:bg-[#ffb700] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ffd700] disabled:pointer-events-none disabled:opacity-50"
+                    href="/web3"
+                  >
+                   Demo
+                  </Link>
+                 
+                </div>
+              </div>
+              </div>
+              </div>
+          </section> */}
       </main>
       <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t border-[#2d2d2d] px-4 py-6 sm:flex-row md:px-6">
         <p className="text-xs text-gray-400">

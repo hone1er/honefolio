@@ -223,7 +223,7 @@ export default function Component() {
                 alt="Developer"
                 className="rounded-full"
                 height="300"
-                src="https://picsum.photos/800/1200"
+                src="/images/computerPep.jpeg"
                 style={{
                   aspectRatio: "300/300",
                   objectFit: "cover",
@@ -236,20 +236,25 @@ export default function Component() {
                 About the Developer
               </h2>
               <p>
-                I&apos;m a passionate frontend developer with a keen eye for
-                design and a deep understanding of modern web technologies.
-                I&apos;m excited to showcase my skills in building interactive
-                and visually appealing user interfaces.
+               A dude who loves to code and build cool stuff. <br /><br />
+               Love the freedom that crypto and web3 represents and the possibilities it brings.
+               <br /><br />
+              If you have any questions or just want to chat, feel free to reach out!
               </p>
               <div className="flex gap-4">
+                <a href='https://www.linkedin.com/in/joe-villavicencio-523a6b179/' target='_blank' rel='noreferrer'>  
                 <Button size="lg">
                   <LinkedinIcon className="mr-2 h-4 w-4" />
                   LinkedIn
                 </Button>
+                </a>  
+                <a href='https://www.x.com/hone1er/' target='_blank' rel='noreferrer'>  
+
                 <Button size="lg" variant="outline" className="text-black">
                   <TwitterIcon className="mr-2 h-4 w-4" />
                   Twitter
                 </Button>
+                </a>
               </div>
             </div>
           </div>

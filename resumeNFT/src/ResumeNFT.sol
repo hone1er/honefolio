@@ -8,6 +8,7 @@ import "@openzeppelin/contracts@5.0.2/access/Ownable.sol";
 
 contract JoeResume is ERC721, ERC721URIStorage, Ownable {
     uint256 private _nextTokenId;
+    mapping(address NftOwner => uint256 InterviewTime) private _interviewTime;
 
     constructor(address initialOwner)
         ERC721("JoeResume", "RSME")
@@ -22,6 +23,14 @@ contract JoeResume is ERC721, ERC721URIStorage, Ownable {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
+    }
+
+    // function that sets an interview time with the owner of the NFT and owner of the contract
+    function setInterviewTime(uint256 tokenId, uint256 time) public {
+        // check if the caller is the owner of the NFT
+        require(ownerOf(tokenId) == msg.sender, "You are not the owner of the NFT");
+        // set the interview time for the owner of the NFT
+        _interviewTime[ownerOf(tokenId)] = time;
     }
 
     // The following functions are overrides required by Solidity.
