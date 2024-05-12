@@ -1,15 +1,10 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/mlp32NDwYxr
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Component() {
   return (
     <>
-      <main className="flex-1 ">
+      <main className="flex-1 scroll-smooth transition-all duration-500">
         <section className=" w-full bg-[#2d2d2d] py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container mx-auto  flex flex-col items-center px-4 text-center md:px-6">
             <div className="space-y-4">
@@ -24,7 +19,7 @@ export default function Component() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 className="inline-flex h-10 items-center justify-center rounded-md bg-[#ffd700] px-8 text-sm font-medium text-[#1e1e1e] shadow transition-colors hover:bg-[#ffb700] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ffd700] disabled:pointer-events-none disabled:opacity-50"
-                href="#"
+                href="#portfolio"
               >
                 View Portfolio
               </Link>
@@ -146,7 +141,10 @@ export default function Component() {
             </div>
           </div> */}
         </section>
-        <section className="w-full bg-[#1e1e1e] py-12 md:py-24 lg:py-32">
+        <section
+          className="w-full bg-[#1e1e1e] py-12 md:py-24 lg:py-32"
+          id="portfolio"
+        >
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
@@ -179,7 +177,10 @@ export default function Component() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105">
+                <Link
+                  href={"https://trydrippi.com"}
+                  className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                >
                   <Image
                     alt="Drippi"
                     className="h-full w-full object-cover  "
@@ -194,8 +195,11 @@ export default function Component() {
                   <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
                     <div className="text-sm font-medium">Drippi</div>
                   </div>
-                </div>
-                <div className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105">
+                </Link>
+                <Link
+                  href={"https://twali.xyz"}
+                  className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                >
                   <Image
                     alt="Twali"
                     className="h-full w-full object-cover"
@@ -210,10 +214,13 @@ export default function Component() {
                   <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
                     <div className="text-sm font-medium">Twali</div>
                   </div>
-                </div>
-                <div className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105">
+                </Link>
+                <Link
+                  href={"https://skatexp.org"}
+                  className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                >
                   <Image
-                    alt="Nexth"
+                    alt="SkateXP"
                     className="h-full w-full object-cover"
                     height="300"
                     src="/images/skateXp.png"
@@ -226,7 +233,7 @@ export default function Component() {
                   <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
                     <div className="text-sm font-medium">SkateXP</div>
                   </div>
-                </div>
+                </Link>
                 <Link
                   href={"/open-source"}
                   className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
