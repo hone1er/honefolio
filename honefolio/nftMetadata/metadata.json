@@ -1,0 +1,24 @@
+{
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Sunset"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Rayban"
+    },
+    {
+      "trait_type": "Hand",
+      "value": "Laptop"
+    },
+    {
+      "trait_type": "Feet",
+      "value": "Skateboard"
+    }
+  ],
+  "name": "Joe V. Resume",
+  "description": "Joe V. is a software engineer with a passion for skateboarding and sunsets. He's always working on his laptop, even when he's out and about.",
+  "image": "ipfs://bafybeif5755vwbgsifizxv2r5zknnjnwo57kayd2lbviinmvdbtjvwm2ce/",
+  "external_url": "https://honefolio.vercel.app/"
+}
