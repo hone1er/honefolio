@@ -1,12 +1,6 @@
-[submodule "honefolio/lib/ds-test"]
-	path = honefolio/lib/ds-test
-	url = https://github.com/dapphub/ds-test
-[submodule "lib/openzeppelin-contracts"]
-	path = lib/openzeppelin-contracts
-	url = https://github.com/Openzeppelin/openzeppelin-contracts
-[submodule "honefolio/lib/openzeppelin-contracts"]
-	path = honefolio/lib/openzeppelin-contracts
-	url = https://github.com/Openzeppelin/openzeppelin-contracts
 [submodule "resumeNFT/lib/ds-test"]
 	path = resumeNFT/lib/ds-test
 	url = https://github.com/dapphub/ds-test
+[submodule "resumeNFT/lib/openzeppelin-contracts"]
+	path = resumeNFT/lib/openzeppelin-contracts
+	url = https://github.com/Openzeppelin/openzeppelin-contracts
