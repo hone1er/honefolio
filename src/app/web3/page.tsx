@@ -6,8 +6,8 @@ import { CardContent, Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import Image from "next/image";
 import { AddressInput } from "~/components/ui/addressInput";
-import { useAccount, useReadContract, useSendTransaction, useWriteContract } from "wagmi";
-import {  erc721Abi, isAddress, parseEther } from "viem";
+import { useAccount, useSendTransaction, useWriteContract } from "wagmi";
+import { isAddress, parseEther } from "viem";
 import {  useState } from "react";
 import truncateAddress from "~/utils/truncateAddress";
 
@@ -37,13 +37,8 @@ export default function Component() {
     );
   }
 
-  const { writeContract,error, status } = useWriteContract();
-  const { data } = useReadContract({
-    address: '0x04eEc43886A6B062A51c84873EDCe5f4a3A96267',
-    functionName: 'tokenURI',
-    args: [BigInt(0)],
-    abi: erc721Abi
-  })
+  const { writeContract} = useWriteContract();
+
 
 
   const handleMintNFT = async () => {
