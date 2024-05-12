@@ -31,4 +31,5 @@ local-node: setup-yarn
 	yarn hardhat node 
 
 deploy:
-	forge create HonefolioNFT --private-key ${PRIVATE_KEY} # --rpc-url 
+	forge create ResumeNFT --private-key ${PRIVATE_KEY} # --rpc-url 
+	

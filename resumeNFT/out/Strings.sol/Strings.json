@@ -1,0 +1,22 @@
+{
+  "abi": [
+    {
+      "type": "error",
+      "name": "StringsInsufficientHexLength",
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "length",
+          "type": "uint256"
+        }
+      ]
+    }
+  ],
+  "bin": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c924f9bcb993dbf473f2b089de0cbee1c32f8402bd0a62dda77cf7a8aece8e0364736f6c63430008190033",
+  "bin-runtime": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c924f9bcb993dbf473f2b089de0cbee1c32f8402bd0a62dda77cf7a8aece8e0364736f6c63430008190033"
+}

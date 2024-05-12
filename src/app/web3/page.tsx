@@ -6,15 +6,17 @@ import { CardContent, Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import Image from "next/image";
 import { AddressInput } from "~/components/ui/addressInput";
-import { useSendTransaction } from "wagmi";
-import { isAddress, parseEther } from "viem";
-import { useState } from "react";
+import { useAccount, useReadContract, useSendTransaction, useWriteContract } from "wagmi";
+import {  erc721Abi, isAddress, parseEther } from "viem";
+import {  useState } from "react";
 import truncateAddress from "~/utils/truncateAddress";
 
 export default function Component() {
   const [to, setTo] = useState("");
-
+  const { address } = useAccount();
   const { data: hash, sendTransaction } = useSendTransaction();
+
+
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -35,6 +37,34 @@ export default function Component() {
     );
   }
 
+  const { writeContract,error, status } = useWriteContract();
+  const { data } = useReadContract({
+    address: '0x04eEc43886A6B062A51c84873EDCe5f4a3A96267',
+    functionName: 'tokenURI',
+    args: [BigInt(0)],
+    abi: erc721Abi
+  })
+
+
+  const handleMintNFT = async () => {
+    if (!address) return
+    const contractAddress = '0x04eEc43886A6B062A51c84873EDCe5f4a3A96267'
+    writeContract({
+      address: contractAddress,
+      functionName: 'safeMint',
+      args: [address, 'QmZTCdyUwaGnEKYpobxLv3jyi1EUaVfj2MBrtnEuhZrQW3'],
+      abi: [{
+        constant: false,
+        inputs: [{ name: 'to', type: 'address' }, {name: 'uri', type: 'string'}],
+        name: 'safeMint',
+        outputs: [],
+        payable: false,
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },],
+    })
+  }
+
   return (
     <>
       <main className="flex-1">
@@ -45,11 +75,10 @@ export default function Component() {
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                Web3 Frontend Showcase
+                Swaggy lil&apos; Web3 Demo
               </h1>
               <p className="text-lg">
-                Browse web3 features implemented by Joe in this frontend from
-                connecting a wallet to minting NFTs and more.
+                Peep the skills I have in building Web3 applications by testing out some features i threw together.
               </p>
               <div className="flex gap-4">
                 <ConnectButton />
@@ -59,7 +88,7 @@ export default function Component() {
               </div>
             </div>
             <div className="flex justify-center">
-              <Image
+              {/* <Image
                 alt="Hero"
                 className="rounded-xl object-cover"
                 height="400"
@@ -69,20 +98,20 @@ export default function Component() {
                   objectFit: "cover",
                 }}
                 width="400"
-              />
+              /> */}
             </div>
           </div>
         </section>
         <section className="py-20" id="nft">
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
             <div className="flex justify-center">
-              <Card>
+              <Card className="bg-slate-100">
                 <CardContent className="flex flex-col items-center justify-center gap-4 p-8">
                   <Image
                     alt="NFT"
                     className="rounded-xl"
                     height="300"
-                    src="https://picsum.photos/800/1200"
+                    src="/images/resume.png"
                     style={{
                       aspectRatio: "300/300",
                       objectFit: "cover",
@@ -90,9 +119,9 @@ export default function Component() {
                     width="300"
                   />
                   <div className="space-y-1 text-center">
-                    <h3 className="text-xl font-semibold">Cosmic Traveler</h3>
+                    <h3 className="text-xl font-semibold">Resume NFT</h3>
                     <p className="text-gray-500 dark:text-gray-400">
-                      Unique NFT artwork
+                      Mint Joe&apos;s resume as an NFT
                     </p>
                   </div>
                 </CardContent>
@@ -100,24 +129,24 @@ export default function Component() {
             </div>
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tight">
-                Display and Mint NFTs
+                Mint it, show it off
               </h2>
               <p>
-                Showcase your ability to interact with NFTs by displaying an NFT
-                and providing functionality to mint a new one.
+                Displaying and minting NFTs is a common feature in Web3. Check out my NFT minting feature by minting a copy of my resume!
               </p>
               <div className="flex gap-4">
                 <Button size="lg">
                   <CodeIcon className="mr-2 h-4 w-4" />
                   Read Contract
                 </Button>
-                <Button size="lg" variant="outline" className="text-black">
+                <Button size="lg" variant="outline" className="text-black" onClick={handleMintNFT}>
                   <PlusIcon className="mr-2 h-4 w-4" />
                   Mint NFT
                 </Button>
               </div>
             </div>
           </div>
+        
         </section>
         <section className="bg-gray-100 py-20 dark:bg-gray-800" id="ethereum">
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
@@ -169,7 +198,7 @@ export default function Component() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {truncateAddress(hash, 15)}
+                        {truncateAddress(hash as string, 15)}
                       </a>
                     </p>
                   ) : null}
@@ -181,8 +210,7 @@ export default function Component() {
                 Transfer Ethereum Securely
               </h2>
               <p>
-                Showcase your ability to handle Ethereum transactions by
-                providing a simple and secure way to send Ether to any address.
+                Show me the money! Sending money should be easy and secure. With Web3, you can send Ethereum to any address with just a few clicks.
               </p>
               <div className="flex gap-4">
                 <ConnectButton />
