@@ -7,3 +7,6 @@
 [submodule "honefolio/lib/openzeppelin-contracts"]
 	path = honefolio/lib/openzeppelin-contracts
 	url = https://github.com/Openzeppelin/openzeppelin-contracts
+[submodule "resumeNFT/lib/ds-test"]
+	path = resumeNFT/lib/ds-test
+	url = https://github.com/dapphub/ds-test
