@@ -38,10 +38,10 @@ export default function Component() {
                   alt="Next.js"
                   className="h-12 w-12"
                   height={48}
-                  src="/placeholder.svg"
+                  src="/images/nextjs.svg"
                   style={{
                     aspectRatio: "48/48",
-                    objectFit: "cover",
+                    objectFit: "contain",
                   }}
                   width={48}
                 />
@@ -55,10 +55,10 @@ export default function Component() {
                   alt="TypeScript"
                   className="h-12 w-12"
                   height={48}
-                  src="/placeholder.svg"
+                  src="/images/ts-logo-round-512.png"
                   style={{
                     aspectRatio: "48/48",
-                    objectFit: "cover",
+                    objectFit: "contain",
                   }}
                   width={48}
                 />
@@ -72,10 +72,10 @@ export default function Component() {
                   alt="React"
                   className="h-12 w-12"
                   height={48}
-                  src="/placeholder.svg"
+                  src="/images/react-logo.svg"
                   style={{
                     aspectRatio: "48/48",
-                    objectFit: "cover",
+                    objectFit: "contain",
                   }}
                   width={48}
                 />
@@ -89,10 +89,10 @@ export default function Component() {
                   alt="Python"
                   className="h-12 w-12"
                   height={48}
-                  src="/placeholder.svg"
+                  src="/images/python-logo-only.png"
                   style={{
                     aspectRatio: "48/48",
-                    objectFit: "cover",
+                    objectFit: "contain",
                   }}
                   width={48}
                 />
@@ -107,10 +107,10 @@ export default function Component() {
                   alt="Solidity"
                   className="h-12 w-12"
                   height={48}
-                  src="/placeholder.svg"
+                  src="/images/solidity_logo.svg"
                   style={{
                     aspectRatio: "48/48",
-                    objectFit: "cover",
+                    objectFit: "contain",
                   }}
                   width={48}
                 />
@@ -125,10 +125,10 @@ export default function Component() {
                   alt="Tailwind CSS"
                   className="h-12 w-12"
                   height={48}
-                  src="/placeholder.svg"
+                  src="/images/tailwind-logo.svg"
                   style={{
                     aspectRatio: "48/48",
-                    objectFit: "cover",
+                    objectFit: "contain",
                   }}
                   width={48}
                 />
