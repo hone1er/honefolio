@@ -1,0 +1,3 @@
+[submodule "honefolio/lib/ds-test"]
+	path = honefolio/lib/ds-test
+	url = https://github.com/dapphub/ds-test
