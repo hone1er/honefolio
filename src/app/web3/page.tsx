@@ -48,7 +48,7 @@ export default function Component() {
     if (chainId !== 42161) {
       switchChain({ chainId: 42161 });
     }
-    const contractAddress = "0x04eEc43886A6B062A51c84873EDCe5f4a3A96267";
+    const contractAddress = "0x9CFB7a9bfd05De861e60cAa9c62148F617f17806";
     writeContract({
       address: contractAddress,
       functionName: "safeMint",
