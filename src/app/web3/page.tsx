@@ -145,7 +145,7 @@ export default function Component() {
               </p>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/hone1er/honefolio/blob/main/resumeNFT/src/ResumeNFT.sol"
+                  href="https://arbiscan.io/address/0x9cfb7a9bfd05de861e60caa9c62148f617f17806#code"
                   target="_blank"
                   rel="noreferrer"
                 >
