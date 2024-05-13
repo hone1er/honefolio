@@ -88,9 +88,11 @@ export default function Component() {
               </p>
               <div className="flex gap-4">
                 <ConnectButton />
-                <Button size="lg" variant="outline" className="text-black">
-                  Learn More
-                </Button>
+                <a href="https://ethereum.org/en/web3/" target="_blank">
+                  <Button size="lg" variant="outline" className="text-black">
+                    Learn More
+                  </Button>
+                </a>
               </div>
             </div>
             <div className="flex justify-center">
@@ -233,9 +235,14 @@ export default function Component() {
               </p>
               <div className="flex gap-4">
                 <ConnectButton />
-                <Button size="lg" variant="outline">
-                  Learn More
-                </Button>
+                <a
+                  href="https://ethereum.org/en/developers/docs/intro-to-ether/#transferring-ether"
+                  target="_blank"
+                >
+                  <Button size="lg" variant="outline">
+                    Learn More
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
