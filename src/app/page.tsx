@@ -6,9 +6,9 @@ export default function Component() {
     <>
       <main className="flex-1 scroll-smooth transition-all duration-500">
         <section className=" w-full bg-[#2d2d2d] py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container mx-auto  flex flex-col items-center px-4 text-center md:px-6">
+          <div className="container mx-auto flex flex-col items-center gap-6 px-4 text-center md:px-6">
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+              <h1 className="text-left text-4xl font-bold tracking-tighter sm:text-center sm:text-5xl md:text-6xl">
                 Full-Stack Developer
               </h1>
               <p className="max-w-[420px] text-left text-gray-300 md:text-xl">
@@ -16,15 +16,15 @@ export default function Component() {
                 performant web applications. Let&apos;s build.
               </p>
             </div>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="plase grid w-full max-w-[400px] grid-cols-2 gap-4">
               <Link
-                className="inline-flex h-10 items-center justify-center rounded-md bg-[#ffd700] px-8 text-sm font-medium text-[#1e1e1e] shadow transition-colors hover:bg-[#ffb700] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ffd700] disabled:pointer-events-none disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-md bg-[#ffd700] px-4 text-sm font-medium text-[#1e1e1e] shadow transition-colors hover:bg-[#ffb700] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ffd700] disabled:pointer-events-none disabled:opacity-50"
                 href="#portfolio"
               >
                 View Portfolio
               </Link>
               <Link
-                className="inline-flex h-10 items-center justify-center rounded-md border border-[#ffd700] bg-transparent px-8 text-sm font-medium text-[#ffd700] shadow-sm transition-colors hover:bg-[#ffd700] hover:text-[#1e1e1e] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ffd700] disabled:pointer-events-none disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-md border border-[#ffd700] bg-transparent px-4 text-sm font-medium text-[#ffd700] shadow-sm transition-colors hover:bg-[#ffd700] hover:text-[#1e1e1e] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#ffd700] disabled:pointer-events-none disabled:opacity-50"
                 href="mailto:honeoner@gmail.com?subject=Hiring Inquiry"
               >
                 Hire Me

@@ -6,7 +6,12 @@ import { CardContent, Card } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import Image from "next/image";
 import { AddressInput } from "~/components/ui/addressInput";
-import { useAccount, useSendTransaction, useSwitchChain, useWriteContract } from "wagmi";
+import {
+  useAccount,
+  useSendTransaction,
+  useSwitchChain,
+  useWriteContract,
+} from "wagmi";
 import { isAddress, parseEther } from "viem";
 import { useState } from "react";
 import truncateAddress from "~/utils/truncateAddress";
@@ -16,8 +21,6 @@ export default function Component() {
   const { address, chainId } = useAccount();
   const { switchChain } = useSwitchChain();
   const { data: hash, sendTransaction } = useSendTransaction();
-
-
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -41,27 +44,31 @@ export default function Component() {
   const { writeContract } = useWriteContract();
 
   const handleMintNFT = async () => {
-
-    if (!address) return
+    if (!address) return;
     if (chainId !== 42161) {
-      switchChain({ chainId: 42161 })
+      switchChain({ chainId: 42161 });
     }
-    const contractAddress = '0x04eEc43886A6B062A51c84873EDCe5f4a3A96267'
+    const contractAddress = "0x04eEc43886A6B062A51c84873EDCe5f4a3A96267";
     writeContract({
       address: contractAddress,
-      functionName: 'safeMint',
-      args: [address, 'QmZTCdyUwaGnEKYpobxLv3jyi1EUaVfj2MBrtnEuhZrQW3'],
-      abi: [{
-        constant: false,
-        inputs: [{ name: 'to', type: 'address' }, { name: 'uri', type: 'string' }],
-        name: 'safeMint',
-        outputs: [],
-        payable: false,
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },],
-    })
-  }
+      functionName: "safeMint",
+      args: [address, "QmZTCdyUwaGnEKYpobxLv3jyi1EUaVfj2MBrtnEuhZrQW3"],
+      abi: [
+        {
+          constant: false,
+          inputs: [
+            { name: "to", type: "address" },
+            { name: "uri", type: "string" },
+          ],
+          name: "safeMint",
+          outputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+    });
+  };
 
   return (
     <>
@@ -76,7 +83,8 @@ export default function Component() {
                 Swaggy lil&apos; Web3 Demo
               </h1>
               <p className="text-lg">
-                Peep the skills I have in building Web3 applications by testing out some features i threw together.
+                Peep the skills I have in building Web3 applications by testing
+                out some features i threw together.
               </p>
               <div className="flex gap-4">
                 <ConnectButton />
@@ -130,15 +138,19 @@ export default function Component() {
                 Mint it, show it off
               </h2>
               <p>
-                Displaying and minting NFTs is a common feature in Web3. Check out my NFT minting feature by minting a copy of my resume!
+                Displaying and minting NFTs is a common feature in Web3. Check
+                out my NFT minting feature by minting a copy of my resume!
               </p>
               <div className="flex gap-4">
                 <Button size="lg">
                   <CodeIcon className="mr-2 h-4 w-4" />
                   Read Contract
                 </Button>
-                <Button size="lg" variant="outline" className="text-black" onClick={handleMintNFT}
-
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-black"
+                  onClick={handleMintNFT}
                 >
                   <PlusIcon className="mr-2 h-4 w-4" />
                   Mint NFT
@@ -209,7 +221,9 @@ export default function Component() {
                 Transfer Ethereum Securely
               </h2>
               <p>
-                Show me the money! Sending money should be easy and secure. With Web3, you can send Ethereum to any address with just a few clicks.
+                Show me the money! Sending money should be easy and secure. With
+                Web3, you can send Ethereum to any address with just a few
+                clicks.
               </p>
               <div className="flex gap-4">
                 <ConnectButton />
@@ -240,20 +254,31 @@ export default function Component() {
                 About the Developer
               </h2>
               <p>
-                A dude who loves to code and build cool stuff. <br /><br />
-                Love the freedom that crypto and web3 represents and the possibilities it brings.
-                <br /><br />
-                If you have any questions or just want to chat, feel free to reach out!
+                A dude who loves to code and build cool stuff. <br />
+                <br />
+                Love the freedom that crypto and web3 represents and the
+                possibilities it brings.
+                <br />
+                <br />
+                If you have any questions or just want to chat, feel free to
+                reach out!
               </p>
               <div className="flex gap-4">
-                <a href='https://www.linkedin.com/in/joe-villavicencio-523a6b179/' target='_blank' rel='noreferrer'>
+                <a
+                  href="https://www.linkedin.com/in/joe-villavicencio-523a6b179/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Button size="lg">
                     <LinkedinIcon className="mr-2 h-4 w-4" />
                     LinkedIn
                   </Button>
                 </a>
-                <a href='https://www.x.com/hone1er/' target='_blank' rel='noreferrer'>
-
+                <a
+                  href="https://www.x.com/hone1er/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Button size="lg" variant="outline" className="text-black">
                     <TwitterIcon className="mr-2 h-4 w-4" />
                     Twitter
