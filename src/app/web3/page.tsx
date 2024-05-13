@@ -142,10 +142,16 @@ export default function Component() {
                 out my NFT minting feature by minting a copy of my resume!
               </p>
               <div className="flex gap-4">
-                <Button size="lg">
-                  <CodeIcon className="mr-2 h-4 w-4" />
-                  Read Contract
-                </Button>
+                <a
+                  href="https://github.com/hone1er/honefolio/blob/main/resumeNFT/src/ResumeNFT.sol"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button size="lg">
+                    <CodeIcon className="mr-2 h-4 w-4" />
+                    Read Contract
+                  </Button>
+                </a>
                 <Button
                   size="lg"
                   variant="outline"
