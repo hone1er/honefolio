@@ -142,17 +142,17 @@ export default function Component() {
           </div>
         </section>
         <section
-          className="w-full bg-[#1e1e1e] py-12 md:py-24 lg:py-32"
+          className="w-full bg-[#1e1e1e] py-24 md:py-24 lg:py-32"
           id="portfolio"
         >
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
+              <div className="relative flex flex-col justify-center space-y-4 sm:bottom-10">
+                <div className="relative bottom-10 space-y-2">
                   <div className="inline-block rounded-lg bg-[#2d2d2d] px-3 py-1 text-sm">
                     Featured Projects
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  <h2 className=" text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                     Pixel-Perfect Creations
                   </h2>
                   <p className="max-w-[600px] text-gray-300 md:text-xl">
@@ -176,85 +176,98 @@ export default function Component() {
                   </Link>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <Link
-                  href={"https://drippi-erqr90rsj-drippi.vercel.app/"}
-                  className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
-                >
-                  <Image
-                    alt="Drippi"
-                    className="h-full w-full object-cover  "
-                    height="300"
-                    src="/images/drippiMobile.png"
-                    style={{
-                      aspectRatio: "300/300",
-                      objectFit: "contain",
-                    }}
-                    width="300"
-                  />
-                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
-                    <div className="text-sm font-medium">Drippi</div>
-                  </div>
-                </Link>
-                <Link
-                  href={"https://twali.xyz"}
-                  className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
-                >
-                  <Image
-                    alt="Twali"
-                    className="h-full w-full object-cover"
-                    height="300"
-                    src="/images/twaliLaptop.png"
-                    style={{
-                      aspectRatio: "300/300",
-                      objectFit: "contain",
-                    }}
-                    width="300"
-                  />
-                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
-                    <div className="text-sm font-medium">Twali</div>
-                  </div>
-                </Link>
-                <Link
-                  href={"https://skatexp.org"}
-                  className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
-                >
-                  <Image
-                    alt="SkateXP"
-                    className="h-full w-full object-cover"
-                    height="300"
-                    src="/images/skateXp.png"
-                    style={{
-                      aspectRatio: "300/300",
-                      objectFit: "contain",
-                    }}
-                    width="300"
-                  />
-                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
-                    <div className="text-sm font-medium">SkateXP</div>
-                  </div>
-                </Link>
-                <Link
-                  href={"/open-source"}
-                  className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
-                >
-                  <Image
-                    alt="Open Source"
-                    className="h-full w-full object-cover"
-                    height="300"
-                    src="/images/open.jpeg"
-                    style={{
-                      aspectRatio: "300/300",
-                      objectFit: "contain",
-                    }}
-                    width="300"
-                  />
-                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
-                    <div className="text-sm font-medium">
-                      Open-source Contributions
+              <div className="flex w-full flex-col gap-8">
+                <div className="grid grid-cols-2 gap-4">
+                  <Link
+                    href={"https://drippi-erqr90rsj-drippi.vercel.app/"}
+                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                  >
+                    <Image
+                      alt="Drippi"
+                      className="h-full w-full object-cover  "
+                      height="300"
+                      src="/images/drippiMobile.png"
+                      style={{
+                        aspectRatio: "300/300",
+                        objectFit: "contain",
+                      }}
+                      width="300"
+                    />
+                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
+                      <div className="text-sm font-medium">Drippi</div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                  <Link
+                    href={"https://twali.xyz"}
+                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                  >
+                    <Image
+                      alt="Twali"
+                      className="h-full w-full object-cover"
+                      height="300"
+                      src="/images/twaliLaptop.png"
+                      style={{
+                        aspectRatio: "300/300",
+                        objectFit: "contain",
+                      }}
+                      width="300"
+                    />
+                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
+                      <div className="text-sm font-medium">Twali</div>
+                    </div>
+                  </Link>
+                  <Link
+                    href={"https://skatexp.org"}
+                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                  >
+                    <Image
+                      alt="SkateXP"
+                      className="h-full w-full object-cover"
+                      height="300"
+                      src="/images/skateXp.png"
+                      style={{
+                        aspectRatio: "300/300",
+                        objectFit: "contain",
+                      }}
+                      width="300"
+                    />
+                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
+                      <div className="text-sm font-medium">SkateXP</div>
+                    </div>
+                  </Link>
+                  <Link
+                    href={"/open-source"}
+                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                  >
+                    <Image
+                      alt="Open Source"
+                      className="h-full w-full object-cover"
+                      height="300"
+                      src="/images/open.jpeg"
+                      style={{
+                        aspectRatio: "300/300",
+                        objectFit: "contain",
+                      }}
+                      width="300"
+                    />
+                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
+                      <div className="text-sm font-medium">
+                        Open-source Contributions
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Link
+                    className="hover:underline"
+                    href="https://castizaycharrua.com"
+                  >
+                    Castiza & Charrua
+                  </Link>
+                  <Link className="hover:underline" href="https://ziti.studio">
+                    Ziti Studio
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
