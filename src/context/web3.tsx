@@ -17,13 +17,13 @@ const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "";
 
 // 2. Create wagmiConfig
 const metadata = {
-  name: "Web3Modal",
-  description: "Web3Modal Example",
-  url: "https://web3modal.com", // origin must match your domain & subdomain
+  name: "Honefolio",
+  description: "Joe Villavicensio's portfolio",
+  url: "https://honefolio.vercel.app", // origin must match your domain & subdomain
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-const chains = [ mainnet, arbitrum ] as const;
+const chains = [mainnet, arbitrum] as const;
 const config = defaultWagmiConfig({
   chains,
   projectId: projectId,
