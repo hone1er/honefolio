@@ -178,7 +178,7 @@ export default function Component() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <Link
-                  href={"https://trydrippi.com"}
+                  href={"https://drippi-erqr90rsj-drippi.vercel.app/"}
                   className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
                 >
                   <Image
