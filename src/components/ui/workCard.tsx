@@ -62,7 +62,7 @@ export function WorkCard({
             className="flex flex-row gap-2 hover:underline"
           >
             <DownArrowIcon
-              className={`h-4 w-4 ${isOpen ? "rotate-0deg" : "rotat-[270deg]"} `}
+              className={`h-4 w-4 ${isOpen ? "rotate-0deg" : "rotate-[270deg]"} `}
             />
             <p>View Contributions</p>
           </button>
