@@ -52,7 +52,7 @@ export default function Component() {
             repository="https://github.com/alchemix-finance/alchemix-v2-frontend"
             liveDemo="https://alchemix.fi/"
             contributions={[
-              "Identified and fixed a bug in the frontend that prevented users from depositing funds to the wstETH vault. Fixing this bug increased the TVL of the vault by 25% within 48 hours",
+              "Identified and fixed a bug that prevented users from depositing funds to the wstETH vault. Fixing this bug increased the TVL of the vault by 25% within 48 hours",
               "Identified and fixed a bug in the frontend that was causing the UI to freeze",
             ]}
           />
