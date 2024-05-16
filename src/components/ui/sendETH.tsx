@@ -7,7 +7,7 @@ import { useAccount, useBalance, useSendTransaction } from "wagmi";
 import { isAddress, parseEther } from "viem";
 import { useState } from "react";
 import truncateAddress from "~/utils/truncateAddress";
-
+import { useCapabilities } from "wagmi/experimental";
 export function SendETH() {
   const [to, setTo] = useState("");
   const { address } = useAccount();
@@ -16,7 +16,8 @@ export function SendETH() {
   });
 
   const { data: hash, sendTransaction } = useSendTransaction();
-
+  const { data: capabilities } = useCapabilities();
+  console.log("🚀 ~ SendETH ~ capabilities:", capabilities);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
@@ -43,8 +44,6 @@ export function SendETH() {
           <p className="text-gray-500 dark:text-gray-400">
             Your balance: {data.formatted}
           </p>
-        ) : isLoading ? (
-          <p className="text-gray-500 dark:text-gray-400">Loading balance...</p>
         ) : null}
       </div>
       <form className="w-full space-y-4" onSubmit={submit}>
