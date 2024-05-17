@@ -25,16 +25,6 @@ export default function Component() {
       <div className="w-full py-12 md:py-24 lg:py-32">
         <div className="container grid gap-6 px-4 md:px-6 lg:grid-cols-3 lg:gap-10">
           <WorkCard
-            title="Nexth"
-            description="A Next.js + Ethereum starter kit with Viem, Wagmi, Web3Modal, SIWE, Tailwind, daisyUI and more!"
-            repository="https://github.com/wslyvh/nexth"
-            liveDemo="https://nexth.vercel.app/"
-            contributions={[
-              "Implemented mulitple reusable components including ENS supported address input and token quantity input",
-              "Added support for Coinbase Smart Wallet",
-            ]}
-          />
-          <WorkCard
             title="Alchemix.fi"
             description="Alchemix Finance is a future-yield-backed synthetic asset protocol and community DAO."
             repository="https://github.com/alchemix-finance/alchemix-v2-frontend"
@@ -42,6 +32,16 @@ export default function Component() {
             contributions={[
               "Identified and fixed a bug that prevented users from depositing funds to the wstETH vault. Fixing this bug increased the TVL of the vault by 25% within 48 hours",
               "Identified and fixed a bug in the frontend that was causing the UI to freeze",
+            ]}
+          />
+          <WorkCard
+            title="Nexth"
+            description="A Next.js + Ethereum starter kit with Viem, Wagmi, Web3Modal, SIWE, Tailwind, daisyUI and more!"
+            repository="https://github.com/wslyvh/nexth"
+            liveDemo="https://nexth.vercel.app/"
+            contributions={[
+              "Implemented mulitple reusable components including ENS supported address input and token quantity input",
+              "Added support for Coinbase Smart Wallet",
             ]}
           />
         </div>
