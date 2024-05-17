@@ -18,19 +18,7 @@ export default function Component() {
                 to.
               </p>
             </div>
-            <div className="flex items-center justify-end">
-              <Image
-                alt="John Doe"
-                className="rounded-full"
-                height={200}
-                src="/placeholder.svg"
-                style={{
-                  aspectRatio: "200/200",
-                  objectFit: "cover",
-                }}
-                width={200}
-              />
-            </div>
+            <div className="flex items-center justify-end"></div>
           </div>
         </div>
       </div>

@@ -179,7 +179,26 @@ export default function Component() {
               <div className="flex w-full flex-col gap-8">
                 <div className="grid grid-cols-2 gap-4">
                   <Link
-                    href={"https://drippi-erqr90rsj-drippi.vercel.app/"}
+                    href={"/freelance"}
+                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                  >
+                    <Image
+                      alt="Ziti Studio"
+                      className="h-full w-full object-cover"
+                      height="300"
+                      src="/images/ziti.png"
+                      style={{
+                        aspectRatio: "300/300",
+                        objectFit: "contain",
+                      }}
+                      width="300"
+                    />
+                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
+                      <div className="text-sm font-medium">Freelance</div>
+                    </div>
+                  </Link>
+                  <Link
+                    href={"/individual-contributions"}
                     className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
                   >
                     <Image
@@ -194,18 +213,21 @@ export default function Component() {
                       width="300"
                     />
                     <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
-                      <div className="text-sm font-medium">Drippi</div>
+                      <div className="text-sm font-medium">
+                        Individual contributor
+                      </div>
                     </div>
                   </Link>
+
                   <Link
-                    href={"https://twali.xyz"}
+                    href={"/personal-projects"}
                     className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
                   >
                     <Image
-                      alt="Twali"
+                      alt="CareMatey"
                       className="h-full w-full object-cover"
                       height="300"
-                      src="/images/twaliLaptop.png"
+                      src="/images/carematey.png"
                       style={{
                         aspectRatio: "300/300",
                         objectFit: "contain",
@@ -213,26 +235,7 @@ export default function Component() {
                       width="300"
                     />
                     <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
-                      <div className="text-sm font-medium">Twali</div>
-                    </div>
-                  </Link>
-                  <Link
-                    href={"https://skatexp.org"}
-                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
-                  >
-                    <Image
-                      alt="SkateXP"
-                      className="h-full w-full object-cover"
-                      height="300"
-                      src="/images/skateXp.png"
-                      style={{
-                        aspectRatio: "300/300",
-                        objectFit: "contain",
-                      }}
-                      width="300"
-                    />
-                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
-                      <div className="text-sm font-medium">SkateXP</div>
+                      <div className="text-sm font-medium">Personal</div>
                     </div>
                   </Link>
                   <Link
@@ -251,21 +254,8 @@ export default function Component() {
                       width="300"
                     />
                     <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[#1e1e1e]/80 to-transparent p-4">
-                      <div className="text-sm font-medium">
-                        Open-source Contributions
-                      </div>
+                      <div className="text-sm font-medium">Open-source</div>
                     </div>
-                  </Link>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Link
-                    className="hover:underline"
-                    href="https://castizaycharrua.com"
-                  >
-                    Castiza & Charrua
-                  </Link>
-                  <Link className="hover:underline" href="https://ziti.studio">
-                    Ziti Studio
                   </Link>
                 </div>
               </div>

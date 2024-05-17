@@ -10,8 +10,8 @@ import {
 export interface WorkCardProps {
   title: string;
   description: string;
-  repository: string;
-  liveDemo: string;
+  repository?: string;
+  liveDemo?: string;
   contributions: string[];
 }
 export function WorkCard({
@@ -28,23 +28,25 @@ export function WorkCard({
   };
 
   return (
-    <Card className="h-fit ">
+    <Card className={`h-fit min-h-[210px]`}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-2 ">
-        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-          <GithubIcon className="h-4 w-4" />
-          <a
-            className="hover:underline"
-            href={repository}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            View Repository
-          </a>
-        </div>
+        {repository ? (
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <GithubIcon className="h-4 w-4" />
+            <a
+              className="hover:underline"
+              href={repository}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              View Repository
+            </a>
+          </div>
+        ) : null}
         <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
           <LinkIcon className="h-4 w-4" />
           <a
