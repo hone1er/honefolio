@@ -3,19 +3,32 @@
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { AddressInput } from "~/components/ui/addressInput";
-import { useAccount, useBalance, useSendTransaction } from "wagmi";
+import {
+  useAccount,
+  useBalance,
+  useSendTransaction,
+  useWaitForTransactionReceipt,
+} from "wagmi";
 import { isAddress, parseEther } from "viem";
 import { useState } from "react";
 import truncateAddress from "~/utils/truncateAddress";
+import { useToast } from "./use-toast";
+import { scanners } from "~/constants/scanners";
+import { mainnet } from "viem/chains";
 
 export function SendETH() {
   const [to, setTo] = useState("");
-  const { address } = useAccount();
+  const { address, chainId } = useAccount();
   const { data, isLoading } = useBalance({
+    chainId,
     address,
   });
+  const { toast } = useToast();
 
   const { data: hash, sendTransaction } = useSendTransaction();
+  const { isLoading: isLoadingTxReciept } = useWaitForTransactionReceipt({
+    hash,
+  });
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -26,11 +39,23 @@ export function SendETH() {
     sendTransaction(
       { to, value: parseEther(value) },
       {
-        onSuccess: (hash) => {
-          console.log("Transaction sent with hash", hash);
+        onSuccess: (val) => {
+          toast({
+            title: "Transaction sent",
+            description:
+              "Your transaction has been sent! To view it, click the button below.",
+            action: (
+              <a href={`${scanners[chainId ?? mainnet.id]}/tx/${val}`}>
+                <Button>View Transaction</Button>
+              </a>
+            ),
+          });
         },
         onError: (error) => {
-          console.error("Failed to send transaction", error);
+          toast({
+            title: "Error sending transaction",
+            description: error.message,
+          });
         },
       },
     );
@@ -60,7 +85,7 @@ export function SendETH() {
           className="w-full"
           size={"lg"}
           type="submit"
-          disabled={!isAddress(to)}
+          disabled={!isAddress(to) || isLoadingTxReciept}
         >
           Send
         </Button>
@@ -69,7 +94,7 @@ export function SendETH() {
         <p className="text-gray-500 dark:text-gray-400">
           View transaction on explorer:{" "}
           <a
-            href={`https://arbiscan.io/tx/${hash}`}
+            href={`${scanners[chainId ?? mainnet.id]}/tx/${hash}`}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,11 +1,11 @@
 "use client";
 
 import { createWeb3Modal } from "@web3modal/wagmi/react";
-import { defaultWagmiConfig } from "@web3modal/wagmi/react/config";
-import { State, WagmiProvider } from "wagmi";
-import { arbitrum, baseSepolia, mainnet } from "wagmi/chains";
+import { State, WagmiProvider, createConfig, http } from "wagmi";
+import { arbitrum, base, baseSepolia, mainnet } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PropsWithChildren } from "react";
+import { coinbaseWallet } from "wagmi/connectors";
 interface Props extends PropsWithChildren {
   initialState?: State;
 }
@@ -23,18 +23,35 @@ const metadata = {
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-const chains = [mainnet, arbitrum, baseSepolia] as const;
-const config = defaultWagmiConfig({
+const chains = [baseSepolia, base, mainnet, arbitrum] as const;
+// const config = defaultWagmiConfig({
+//   chains,
+//   projectId: projectId,
+//   metadata,
+//   ssr: true,
+// });
+const config = createConfig({
   chains,
-  projectId: projectId,
-  metadata,
+  connectors: [
+    coinbaseWallet({
+      appName: "Honefolio",
+      chainId: baseSepolia.id,
+    }),
+  ],
   ssr: true,
+  transports: {
+    [baseSepolia.id]: http(),
+    [base.id]: http(),
+    [mainnet.id]: http(),
+    [arbitrum.id]: http(),
+  },
 });
 
 // 3. Create modal
 createWeb3Modal({
+  metadata,
+  projectId,
   wagmiConfig: config,
-  projectId: projectId,
   enableAnalytics: false, // Optional - defaults to your Cloud configuration
   enableOnramp: true,
 });

@@ -1,48 +1,64 @@
 "use client";
 
-import { useAccount, useSwitchChain, useWriteContract } from "wagmi";
+import { useAccount, useWriteContract } from "wagmi";
 import { Button } from "./button";
+import { useToast } from "~/components/ui/use-toast";
+import { scanners } from "~/constants/scanners";
+import { mainnet } from "viem/chains";
 
 export function MintNFTButton() {
   const { address, chainId } = useAccount();
-  const { switchChain } = useSwitchChain();
-  const { writeContract } = useWriteContract();
+  const { writeContract, status } = useWriteContract();
+  const { toast } = useToast();
 
   const handleMintNFT = async () => {
     if (!address) return;
 
-    if (chainId !== 42161) {
-      switchChain({
-        chainId: 42161,
-      });
-    }
-
-    const contractAddress = "0x9CFB7a9bfd05De861e60cAa9c62148F617f17806";
-    writeContract({
-      address: contractAddress,
-      functionName: "safeMint",
-      args: [address, "QmZTCdyUwaGnEKYpobxLv3jyi1EUaVfj2MBrtnEuhZrQW3"],
-      abi: [
-        {
-          constant: false,
-          inputs: [
-            {
-              name: "to",
-              type: "address",
-            },
-            {
-              name: "uri",
-              type: "string",
-            },
-          ],
-          name: "safeMint",
-          outputs: [],
-          payable: false,
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-    });
+    const contractAddress = "0x133dadddc938a30b47ffada424d79001f97813e0";
+    writeContract(
+      {
+        address: contractAddress,
+        functionName: "safeMint",
+        args: [address, "QmZTCdyUwaGnEKYpobxLv3jyi1EUaVfj2MBrtnEuhZrQW3"],
+        abi: [
+          {
+            constant: false,
+            inputs: [
+              {
+                name: "to",
+                type: "address",
+              },
+              {
+                name: "uri",
+                type: "string",
+              },
+            ],
+            name: "safeMint",
+            outputs: [],
+            payable: false,
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+        ],
+      },
+      {
+        onSuccess: (val) =>
+          toast({
+            title: "NFT Minted",
+            description: `Your NFT has been minted with hash: ${val}`,
+            action: (
+              <a href={`${scanners[chainId ?? mainnet.id]}/tx/${val}`}>
+                <Button>View Transaction</Button>
+              </a>
+            ),
+          }),
+        onError: (val) =>
+          toast({
+            title: "Error Minting NFT",
+            description: val.message,
+          }),
+      },
+    );
   };
 
   return (
@@ -51,8 +67,11 @@ export function MintNFTButton() {
       variant="outline"
       className="text-black"
       onClick={handleMintNFT}
+      disabled={status === "pending"}
     >
-      <PlusIcon className="mr-2 h-4 w-4" />
+      <PlusIcon
+        className={`mr-2 h-4 w-4 ${status === "pending" ? "animate-spin" : ""}`}
+      />
       Mint NFT
     </Button>
   );
