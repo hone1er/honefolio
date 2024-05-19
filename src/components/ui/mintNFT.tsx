@@ -1,18 +1,38 @@
 "use client";
 
-import { useAccount, useWriteContract } from "wagmi";
-import { Button } from "./button";
+import { useAccount, useSwitchChain, useWriteContract } from "wagmi";
+import { Button, buttonVariants } from "./button";
 import { useToast } from "~/components/ui/use-toast";
 import { scanners } from "~/constants/scanners";
-import { mainnet } from "viem/chains";
+import { baseSepolia, mainnet } from "viem/chains";
+import { ToastAction } from "./toast";
+import { cn } from "~/lib/utils";
 
 export function MintNFTButton() {
   const { address, chainId } = useAccount();
   const { writeContract, status } = useWriteContract();
+  const { switchChain } = useSwitchChain();
   const { toast } = useToast();
 
   const handleMintNFT = async () => {
     if (!address) return;
+    if (baseSepolia.id !== chainId) {
+      toast({
+        title: "Wrong Network",
+        description: "Please switch to Base Sepolia network to mint this NFT",
+        action: (
+          <ToastAction
+            altText="Switch network"
+            className={cn(buttonVariants({}))}
+            onClick={() => switchChain({ chainId: baseSepolia.id })}
+          >
+            Switch Network
+          </ToastAction>
+        ),
+      });
+
+      return;
+    }
 
     const contractAddress = "0x133dadddc938a30b47ffada424d79001f97813e0";
     writeContract(
