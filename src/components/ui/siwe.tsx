@@ -102,7 +102,7 @@ export function SignInWithEthereum() {
   return (
     <>
       <Button size={"lg"} onClick={promptToSign}>
-        {status !== "authenticated" ? "Sign In with Ethereum" : "Signed In"}
+        {status !== "authenticated" ? "Sign In with Ethereum" : "Sign out"}
       </Button>
     </>
   );
