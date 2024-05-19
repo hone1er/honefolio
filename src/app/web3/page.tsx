@@ -32,6 +32,7 @@ export default function Component() {
                   </Button>
                 </a>
               </div>
+              {/* <SignInWithEthereum /> */}
             </div>
             <div className="flex justify-center"></div>
           </div>

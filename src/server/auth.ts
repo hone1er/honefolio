@@ -5,9 +5,9 @@ import {
   type NextAuthOptions,
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
-import DiscordProvider from "next-auth/providers/discord";
-
-import { env } from "~/env";
+import Credentials from "next-auth/providers/credentials";
+import { SiweMessage } from "siwe";
+import { parseErc6492Signature } from "viem/experimental";
 import { db } from "~/server/db";
 
 /**
@@ -48,6 +48,58 @@ export const authOptions: NextAuthOptions = {
   },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
+    Credentials({
+      name: "Ethereum",
+      credentials: {
+        message: {
+          label: "Message",
+          type: "text",
+          placeholder: "0x0",
+        },
+        signature: {
+          label: "Signature",
+          type: "text",
+          placeholder: "0x0",
+        },
+      },
+      async authorize(credentials) {
+        console.log("🚀 ~ authorize ~ credentials:", credentials);
+        try {
+          const siwe = new SiweMessage(
+            JSON.parse(credentials?.message ?? "{}") as string,
+          );
+          console.log("🚀 ~ authorize ~ siwe:", siwe);
+          const domain = process.env.DOMAIN;
+          console.log("🚀 ~ authorize ~ domain:", domain);
+          if (siwe.domain !== domain) {
+            return null;
+          }
+          console.log("🚀 ~ authorize ~ siwe.nonce:", siwe.nonce);
+
+          if (!credentials?.signature) {
+            return null;
+          }
+
+          console.log(
+            "🚀 ~ authorize ~ parseErc6492Signature",
+            parseErc6492Signature(credentials?.signature as `0x${string}`),
+          );
+          await siwe.verify({
+            signature: parseErc6492Signature(
+              credentials?.signature as `0x${string}`,
+            ).signature,
+          });
+
+          return {
+            id: siwe.address,
+          };
+        } catch (e) {
+          console.log("🚀 ~ authorize ~ e:", e);
+          return null;
+        }
+      },
+    }),
+
     // DiscordProvider({
     //   clientId: env.DISCORD_CLIENT_ID,
     //   clientSecret: env.DISCORD_CLIENT_SECRET,
