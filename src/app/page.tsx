@@ -156,8 +156,7 @@ export default function Component() {
                     Pixel-Perfect Creations
                   </h2>
                   <p className="max-w-[600px] text-gray-300 md:text-xl">
-                    I build beautiful, responsive, and performant web
-                    applications.
+                    Bringing your designs to life with clean, modern code.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
