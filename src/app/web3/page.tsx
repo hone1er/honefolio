@@ -54,7 +54,7 @@ export default function Component() {
               <h2 className="text-3xl font-bold tracking-tight">
                 Sign in with Ethereum
               </h2>
-              <p className="text-lg">
+              <p>
                 SIWE is a secure way to sign in with Ethereum. This
                 implementation uses NextAuthJS on the backend to verify your
                 signature. Try it out!
