@@ -27,7 +27,7 @@ export default async function Component() {
               </h1>
               <p className="text-lg">
                 Peep the skills I have in building Web3 applications by testing
-                out some features i threw together.
+                out some features I threw together.
               </p>
               <div className="flex gap-4">
                 <ConnectButton />

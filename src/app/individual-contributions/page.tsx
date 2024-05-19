@@ -12,7 +12,7 @@ export default function Component() {
                 Individual Contributor Roles
               </h1>
               <p className="text-lg text-gray-500 dark:text-gray-400 md:text-xl">
-                Work i have done as an individual contributor.
+                Work I have done as an individual contributor.
               </p>
             </div>
             <div className="flex items-center justify-end"></div>
