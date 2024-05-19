@@ -15,7 +15,6 @@ export function MintCard({ children }: PropsWithChildren) {
     args: [address ?? "0x"],
   });
 
-  console.log("🚀 ~ MintCard ~ data:", parseInt(data?.toString() ?? "0"));
   return (
     <section className="py-20" id="nft">
       <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
