@@ -18,7 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} scroll-smooth transition-transform duration-500`}
+    >
       <body>
         <div className="flex min-h-[100dvh] flex-col bg-[#1e1e1e] text-white">
           <header className="flex h-14 items-center justify-between px-4 lg:px-6">
