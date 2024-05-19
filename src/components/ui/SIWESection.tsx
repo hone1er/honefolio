@@ -11,7 +11,7 @@ function fetchProtectedContent() {
 
 export function SIWE() {
   const { status } = useSession();
-  const { data } = useQuery<{ title: string; content: string }>({
+  const { data, isLoading } = useQuery<{ title: string; content: string }>({
     queryKey: ["protected"],
     queryFn: fetchProtectedContent,
     enabled: status === "authenticated",
@@ -22,7 +22,7 @@ export function SIWE() {
       className="bg-gray-100 py-20 text-gray-500 dark:bg-gray-800 dark:text-gray-400"
       id="hero"
     >
-      <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
+      <div className="container mx-auto flex max-w-3xl grid-cols-1 flex-col-reverse gap-8 px-4 md:grid md:grid-cols-2 md:gap-12">
         <div
           className={`flex flex-col justify-center gap-4 ${status === "authenticated" ? "" : "blur-md"}`}
         >
@@ -30,8 +30,10 @@ export function SIWE() {
             {data?.title ?? "Protected Content"}
           </h2>
           <p className={`place-self-center  tracking-normal text-black `}>
-            {data?.content ??
-              "Nice try. Sign in with ethereum first to see this content..."}
+            {isLoading
+              ? "...loading"
+              : data?.content ??
+                "Nice try. Sign in with ethereum first to see this content..."}
           </p>
         </div>
 
