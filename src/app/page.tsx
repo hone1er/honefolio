@@ -180,7 +180,7 @@ export default function Component() {
                 <div className="grid grid-cols-2 gap-4">
                   <Link
                     href={"/freelance"}
-                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                    className="relative overflow-hidden rounded-lg bg-[#333333] p-6 pt-0 transition-transform duration-500 hover:scale-105"
                   >
                     <Image
                       alt="Ziti Studio"
@@ -199,7 +199,7 @@ export default function Component() {
                   </Link>
                   <Link
                     href={"/individual-contributions"}
-                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                    className="relative overflow-hidden rounded-lg bg-[#333333] p-6 pt-0 transition-transform duration-500 hover:scale-105"
                   >
                     <Image
                       alt="Drippi"
@@ -221,7 +221,7 @@ export default function Component() {
 
                   <Link
                     href={"/personal-projects"}
-                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                    className="relative overflow-hidden rounded-lg bg-[#333333] p-6 pt-0 transition-transform duration-500 hover:scale-105"
                   >
                     <Image
                       alt="CareMatey"
@@ -240,7 +240,7 @@ export default function Component() {
                   </Link>
                   <Link
                     href={"/open-source"}
-                    className="relative overflow-hidden rounded-lg bg-slate-50 p-6 pt-0 transition-transform duration-500 hover:scale-105"
+                    className="relative overflow-hidden rounded-lg bg-[#333333] p-6 pt-0 transition-transform duration-500 hover:scale-105"
                   >
                     <Image
                       alt="Open Source"
