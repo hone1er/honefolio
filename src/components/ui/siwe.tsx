@@ -5,7 +5,7 @@ import { useAccount, usePublicClient, useSignMessage } from "wagmi";
 import { SiweMessage } from "siwe";
 import { Button } from "./button";
 import { useQuery } from "@tanstack/react-query";
-import { signIn } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { useToast } from "./use-toast";
 
 // Function to fetch nonce from the backend
@@ -22,6 +22,7 @@ export function SignInWithEthereum() {
   const [signature, setSignature] = useState<Hex | undefined>(undefined);
   const [valid, setValid] = useState<boolean | undefined>(undefined);
   const client = usePublicClient();
+  const { status } = useSession();
   const { toast } = useToast();
 
   const { signMessageAsync } = useSignMessage({
@@ -76,6 +77,10 @@ export function SignInWithEthereum() {
   }, [signature, account]);
 
   const promptToSign = async () => {
+    if (status === "authenticated") {
+      await signOut();
+      return;
+    }
     if (valid) {
       toast({
         title: "Already signed",
@@ -97,7 +102,7 @@ export function SignInWithEthereum() {
   return (
     <>
       <Button size={"lg"} onClick={promptToSign}>
-        {!valid ? "Sign In with Ethereum" : "Signed In"}
+        {status !== "authenticated" ? "Sign In with Ethereum" : "Signed In"}
       </Button>
     </>
   );

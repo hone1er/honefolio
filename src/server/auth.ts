@@ -39,15 +39,20 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
+    session: async ({ session }) => ({
       ...session,
       user: {
         ...session.user,
-        id: user.id,
       },
     }),
+    jwt: async ({ token }) => {
+      return token;
+    },
   },
   adapter: PrismaAdapter(db) as Adapter,
+  session: {
+    strategy: "jwt",
+  },
   providers: [
     Credentials({
       name: "Ethereum",

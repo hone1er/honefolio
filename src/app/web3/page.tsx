@@ -1,3 +1,4 @@
+import { SIWE } from "./../../components/ui/SIWESection";
 import { MintNFTButton } from "./../../components/ui/mintNFT";
 import { ConnectButton } from "./../../components/ui/connectButton";
 import Link from "next/link";
@@ -6,10 +7,12 @@ import Image from "next/image";
 import { SendETH } from "~/components/ui/sendETH";
 import { Card, CardContent } from "~/components/ui/card";
 import { PropsWithChildren } from "react";
-import { SignInWithEthereum } from "~/components/ui/siwe";
 import { Separator } from "~/components/ui/separator";
+import { getServerSession } from "next-auth";
 
-export default function Component() {
+export default async function Component() {
+  const session = await getServerSession();
+  console.log("🚀 ~ Component ~ session:", session);
   return (
     <>
       <main className="flex-1">
@@ -38,6 +41,7 @@ export default function Component() {
             <div className="flex justify-center"></div>
           </div>
         </section>
+        <SIWE />
         <MintServer>
           <MintNFTButton />
         </MintServer>
@@ -45,32 +49,7 @@ export default function Component() {
           <SendETH />
         </SendETHServer>
         <Separator className="py-1" />
-        <section
-          className="bg-gray-100 py-20 text-gray-500 dark:bg-gray-800 dark:text-gray-400"
-          id="hero"
-        >
-          <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
-            <div className="space-y-4 text-gray-700">
-              <h2 className="text-3xl font-bold tracking-tight">
-                Sign in with Ethereum
-              </h2>
-              <p>
-                SIWE is a secure way to sign in with Ethereum. This
-                implementation uses NextAuthJS on the backend to verify your
-                signature. Try it out!
-              </p>
-              <div className="flex gap-4">
-                <SignInWithEthereum />
-                <a href="https://login.xyz/" target="_blank">
-                  <Button size="lg" variant="outline">
-                    Learn More
-                  </Button>
-                </a>
-              </div>
-            </div>
-            <div className="flex justify-center"></div>
-          </div>
-        </section>
+
         <Separator className="py-1" />
         <section className="py-20" id="about">
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">

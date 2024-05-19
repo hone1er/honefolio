@@ -6,8 +6,11 @@ import { arbitrum, base, baseSepolia, mainnet } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PropsWithChildren } from "react";
 import { coinbaseWallet } from "wagmi/connectors";
+import { Session } from "next-auth";
+import { SessionProvider } from "next-auth/react";
 interface Props extends PropsWithChildren {
   initialState?: State;
+  session?: Session;
 }
 // 0. Setup queryClient
 const queryClient = new QueryClient();
@@ -56,12 +59,14 @@ createWeb3Modal({
   enableOnramp: true,
 });
 
-export function Web3Provider(props: Props) {
+export function Web3Provider({ initialState, session, children }: Props) {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        {props.children}
-      </QueryClientProvider>
-    </WagmiProvider>
+    <SessionProvider session={session}>
+      <WagmiProvider initialState={initialState} config={config}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </WagmiProvider>
+    </SessionProvider>
   );
 }

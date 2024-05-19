@@ -48,7 +48,7 @@ fi
 
 docker run -d \
   --name $DB_CONTAINER_NAME \
-  -e POSTGRES_USER="postgres" \
+  -e POSTGRES_USER="hone1er" \
   -e POSTGRES_PASSWORD="$DB_PASSWORD" \
   -e POSTGRES_DB=honefolio \
   -p "$DB_PORT":5432 \
