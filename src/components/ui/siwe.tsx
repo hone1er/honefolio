@@ -5,8 +5,9 @@ import { useAccount, usePublicClient, useSignMessage } from "wagmi";
 import { SiweMessage } from "siwe";
 import { Button } from "./button";
 import { useQuery } from "@tanstack/react-query";
-import { signIn, useSession } from "next-auth/react";
-import { parseErc6492Signature } from "viem/experimental";
+import { signIn } from "next-auth/react";
+import { useToast } from "./use-toast";
+
 // Function to fetch nonce from the backend
 const fetchNonce: () => Promise<string> = async () => {
   const response = await fetch("/api/nonce");
@@ -21,16 +22,21 @@ export function SignInWithEthereum() {
   const [signature, setSignature] = useState<Hex | undefined>(undefined);
   const [valid, setValid] = useState<boolean | undefined>(undefined);
   const client = usePublicClient();
+  const { toast } = useToast();
 
   const { signMessageAsync } = useSignMessage({
     mutation: {
       onSuccess: async (sig) => {
-        setSignature(parseErc6492Signature(sig).signature);
+        setSignature(sig);
         await signIn("credentials", {
           message: JSON.stringify(message),
           redirect: false,
-          signature: parseErc6492Signature(sig).signature,
+          signature: sig,
           callbackUrl: "/web3",
+        });
+        toast({
+          title: "Signed in",
+          description: "You have successfully signed in with Ethereum!",
         });
       },
     },
@@ -60,7 +66,7 @@ export function SignInWithEthereum() {
     const isValid = await client.verifyMessage({
       address: account.address,
       message: message?.prepareMessage() ?? "",
-      signature: parseErc6492Signature(signature).signature,
+      signature,
     });
     setValid(isValid);
   }, [signature, account]);
@@ -70,13 +76,29 @@ export function SignInWithEthereum() {
   }, [signature, account]);
 
   const promptToSign = async () => {
-    await signMessageAsync({ message: message?.prepareMessage() ?? "" });
+    if (valid) {
+      toast({
+        title: "Already signed",
+        description: "You have already signed in with Ethereum!",
+      });
+      return;
+    }
+    console.log("🚀 ~ promptToSign ~ ccount.address:", account.address);
+    console.log(
+      "🚀 ~ promptToSign ~ message?.prepareMessage():",
+      message?.prepareMessage(),
+    );
+
+    await signMessageAsync({
+      message: message?.prepareMessage() ?? "",
+      account: account.address,
+    });
   };
   return (
     <>
-      <Button onClick={promptToSign}>Sign In with Ethereum</Button>
-      {signature && <p className="break-all">Signature: {signature}</p>}
-      {valid !== undefined && <p>Is valid: {valid.toString()}</p>}
+      <Button size={"lg"} onClick={promptToSign}>
+        {!valid ? "Sign In with Ethereum" : "Signed In"}
+      </Button>
     </>
   );
 }

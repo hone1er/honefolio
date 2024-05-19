@@ -7,7 +7,8 @@ import {
 import { type Adapter } from "next-auth/adapters";
 import Credentials from "next-auth/providers/credentials";
 import { SiweMessage } from "siwe";
-import { parseErc6492Signature } from "viem/experimental";
+import { createPublicClient, http } from "viem";
+import { baseSepolia } from "viem/chains";
 import { db } from "~/server/db";
 
 /**
@@ -63,36 +64,39 @@ export const authOptions: NextAuthOptions = {
         },
       },
       async authorize(credentials) {
-        console.log("🚀 ~ authorize ~ credentials:", credentials);
+        const pubClient = createPublicClient({
+          name: "Ethereum",
+          chain: baseSepolia,
+          transport: http(),
+        });
+
         try {
+          if (!credentials) {
+            return null;
+          }
+
           const siwe = new SiweMessage(
-            JSON.parse(credentials?.message ?? "{}") as string,
+            JSON.parse(credentials.message) as SiweMessage,
           );
-          console.log("🚀 ~ authorize ~ siwe:", siwe);
-          const domain = process.env.DOMAIN;
-          console.log("🚀 ~ authorize ~ domain:", domain);
-          if (siwe.domain !== domain) {
-            return null;
-          }
-          console.log("🚀 ~ authorize ~ siwe.nonce:", siwe.nonce);
 
-          if (!credentials?.signature) {
+          const nextAuthUrl = process.env.DOMAIN;
+
+          if (siwe.domain !== nextAuthUrl) {
             return null;
           }
 
-          console.log(
-            "🚀 ~ authorize ~ parseErc6492Signature",
-            parseErc6492Signature(credentials?.signature as `0x${string}`),
-          );
-          await siwe.verify({
-            signature: parseErc6492Signature(
-              credentials?.signature as `0x${string}`,
-            ).signature,
+          const isValid = await pubClient.verifyMessage({
+            address: siwe.address as `0x${string}`,
+            message: siwe.prepareMessage(),
+            signature: credentials.signature as `0x${string}`,
           });
 
-          return {
-            id: siwe.address,
-          };
+          if (isValid) {
+            return {
+              id: siwe.address,
+            };
+          }
+          return null;
         } catch (e) {
           console.log("🚀 ~ authorize ~ e:", e);
           return null;
@@ -100,10 +104,6 @@ export const authOptions: NextAuthOptions = {
       },
     }),
 
-    // DiscordProvider({
-    //   clientId: env.DISCORD_CLIENT_ID,
-    //   clientSecret: env.DISCORD_CLIENT_SECRET,
-    // }),
     /**
      * ...add more providers here.
      *

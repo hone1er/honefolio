@@ -6,7 +6,7 @@ import Image from "next/image";
 import { SendETH } from "~/components/ui/sendETH";
 import { Card, CardContent } from "~/components/ui/card";
 import { PropsWithChildren } from "react";
-// import { SignInWithEthereum } from "~/components/ui/siwe";
+import { SignInWithEthereum } from "~/components/ui/siwe";
 
 export default function Component() {
   return (
@@ -33,7 +33,6 @@ export default function Component() {
                   </Button>
                 </a>
               </div>
-              {/* <SignInWithEthereum /> */}
             </div>
             <div className="flex justify-center"></div>
           </div>
@@ -44,6 +43,32 @@ export default function Component() {
         <SendETHServer>
           <SendETH />
         </SendETHServer>
+        <section
+          className="bg-gray-100 py-20 text-gray-500 dark:bg-gray-800 dark:text-gray-400"
+          id="hero"
+        >
+          <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
+            <div className="space-y-4 text-gray-700">
+              <h2 className="text-3xl font-bold tracking-tight">
+                Sign in with Ethereum
+              </h2>
+              <p className="text-lg">
+                SIWE is a secure way to sign in with Ethereum. This
+                implementation uses NextAuthJS on the backend to verify your
+                signature. Try it out!
+              </p>
+              <div className="flex gap-4">
+                <SignInWithEthereum />
+                <a href="https://login.xyz/" target="_blank">
+                  <Button size="lg" variant="outline">
+                    Learn More
+                  </Button>
+                </a>
+              </div>
+            </div>
+            <div className="flex justify-center"></div>
+          </div>
+        </section>
         <section className="py-20" id="about">
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
             <div className="flex justify-center">
@@ -248,6 +273,28 @@ function MintServer({ children }: PropsWithChildren) {
   return (
     <section className="py-20" id="nft">
       <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
+        <div className="space-y-4 ">
+          <h2 className="text-3xl font-bold tracking-tight">
+            Mint it, show it off
+          </h2>
+          <p>
+            Displaying and minting NFTs is a common feature in Web3. Check out
+            my NFT minting feature by minting a copy of my resume!
+          </p>
+          <div className="flex gap-4">
+            <a
+              href="https://arbiscan.io/address/0x9cfb7a9bfd05de861e60caa9c62148f617f17806#code"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button size="lg">
+                <CodeIcon className="mr-2 h-4 w-4" />
+                Read Contract
+              </Button>
+            </a>
+            {children}
+          </div>
+        </div>
         <div className="flex justify-center">
           <Card className="bg-slate-100">
             <CardContent className="flex flex-col items-center justify-center gap-4 p-8">
@@ -270,28 +317,6 @@ function MintServer({ children }: PropsWithChildren) {
               </div>
             </CardContent>
           </Card>
-        </div>
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold tracking-tight">
-            Mint it, show it off
-          </h2>
-          <p>
-            Displaying and minting NFTs is a common feature in Web3. Check out
-            my NFT minting feature by minting a copy of my resume!
-          </p>
-          <div className="flex gap-4">
-            <a
-              href="https://arbiscan.io/address/0x9cfb7a9bfd05de861e60caa9c62148f617f17806#code"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button size="lg">
-                <CodeIcon className="mr-2 h-4 w-4" />
-                Read Contract
-              </Button>
-            </a>
-            {children}
-          </div>
         </div>
       </div>
     </section>
