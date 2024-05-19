@@ -66,7 +66,7 @@ export function SignInWithEthereum() {
   }, [signature, account]);
 
   useEffect(() => {
-    checkValid();
+    checkValid().catch(console.error);
   }, [signature, account]);
 
   const promptToSign = async () => {

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { SendETH } from "~/components/ui/sendETH";
 import { Card, CardContent } from "~/components/ui/card";
 import { PropsWithChildren } from "react";
+// import { SignInWithEthereum } from "~/components/ui/siwe";
 
 export default function Component() {
   return (
