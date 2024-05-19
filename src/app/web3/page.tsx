@@ -7,6 +7,7 @@ import { SendETH } from "~/components/ui/sendETH";
 import { Card, CardContent } from "~/components/ui/card";
 import { PropsWithChildren } from "react";
 import { SignInWithEthereum } from "~/components/ui/siwe";
+import { Separator } from "~/components/ui/separator";
 
 export default function Component() {
   return (
@@ -43,6 +44,7 @@ export default function Component() {
         <SendETHServer>
           <SendETH />
         </SendETHServer>
+        <Separator className="py-1" />
         <section
           className="bg-gray-100 py-20 text-gray-500 dark:bg-gray-800 dark:text-gray-400"
           id="hero"
@@ -69,6 +71,7 @@ export default function Component() {
             <div className="flex justify-center"></div>
           </div>
         </section>
+        <Separator className="py-1" />
         <section className="py-20" id="about">
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
             <div className="flex justify-center">
