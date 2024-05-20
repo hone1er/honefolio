@@ -1,3 +1,4 @@
+import { TechIcons } from "./../components/ui/techIcons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,113 +36,7 @@ export default function Component() {
             </div>
           </div>
           <div className="container grid items-center justify-center gap-4 px-4 pt-24 text-center md:px-6 lg:gap-10">
-            <div className="grid w-full grid-cols-2 items-center justify-center gap-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-12 xl:grid-cols-6">
-              <div className="flex flex-col items-center gap-2">
-                <img
-                  alt="Next.js"
-                  className="h-12 w-12"
-                  height={48}
-                  src="/images/nextjs.svg"
-                  style={{
-                    aspectRatio: "48/48",
-                    objectFit: "contain",
-                  }}
-                  width={48}
-                />
-                <div className="text-sm font-medium">Next.js</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  React framework for building server-rendered applications.
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <img
-                  alt="TypeScript"
-                  className="h-12 w-12"
-                  height={48}
-                  src="/images/ts-logo-round-512.png"
-                  style={{
-                    aspectRatio: "48/48",
-                    objectFit: "contain",
-                  }}
-                  width={48}
-                />
-                <div className="text-sm font-medium">TypeScript</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Superset of JavaScript that adds optional static typing.
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <img
-                  alt="React"
-                  className="h-12 w-12"
-                  height={48}
-                  src="/images/react-logo.svg"
-                  style={{
-                    aspectRatio: "48/48",
-                    objectFit: "contain",
-                  }}
-                  width={48}
-                />
-                <div className="text-sm font-medium">React</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  JavaScript library for building user interfaces.
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <img
-                  alt="Python"
-                  className="h-12 w-12"
-                  height={48}
-                  src="/images/python-logo-only.png"
-                  style={{
-                    aspectRatio: "48/48",
-                    objectFit: "contain",
-                  }}
-                  width={48}
-                />
-                <div className="text-sm font-medium">Python</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  High-level programming language for general-purpose
-                  development.
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <img
-                  alt="Solidity"
-                  className="h-12 w-12"
-                  height={48}
-                  src="/images/solidity_logo.svg"
-                  style={{
-                    aspectRatio: "48/48",
-                    objectFit: "contain",
-                  }}
-                  width={48}
-                />
-                <div className="text-sm font-medium">Solidity</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Contract-oriented, high-level language for implementing smart
-                  contracts.
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <img
-                  alt="Tailwind CSS"
-                  className="h-12 w-12"
-                  height={48}
-                  src="/images/tailwind-logo.svg"
-                  style={{
-                    aspectRatio: "48/48",
-                    objectFit: "contain",
-                  }}
-                  width={48}
-                />
-                <div className="text-sm font-medium">Tailwind CSS</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Utility-first CSS framework for rapidly building custom
-                  designs.
-                </p>
-              </div>
-            </div>
+            <TechIcons />
           </div>
         </section>
         <section
