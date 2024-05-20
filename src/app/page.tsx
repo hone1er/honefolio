@@ -8,7 +8,10 @@ export default function Component() {
         <section className=" w-full bg-[#2d2d2d] py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container mx-auto flex flex-col items-center gap-6 px-4 text-center md:px-6">
             <div className="space-y-4">
-              <h1 className="text-left text-4xl font-bold tracking-tighter sm:text-center sm:text-5xl md:text-6xl">
+              <h1
+                id="gradient-text"
+                className="animate-gradient text-left text-4xl font-bold tracking-tighter text-transparent sm:text-center sm:text-5xl md:text-6xl"
+              >
                 Full-Stack Developer
               </h1>
               <p className="max-w-[420px] text-left text-gray-300 md:text-xl">

@@ -20,7 +20,7 @@ export default async function Component() {
         >
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+              <h1 className=" text-4xl font-bold tracking-tight  sm:text-5xl">
                 Swaggy lil&apos; Web3 Demo
               </h1>
               <p className="text-lg">
