@@ -3,8 +3,6 @@ import { AvatarImage, AvatarFallback, Avatar } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import { CardContent, Card, CardTitle } from "~/components/ui/card";
 import {
-  Image,
-  ProfileCoverSet,
   ProfileId,
   TriStateValue,
   useFollow,
@@ -101,8 +99,6 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
           <AvatarImage
             alt="@shadcn"
             src={
-              ((data?.metadata?.picture as ProfileCoverSet)?.thumbnail as Image)
-                ?.uri ??
               "https://ik.imagekit.io/lens/media-snapshot/3986968c836357ca1fff03bf9318bfcfa694c49b72240ea31e0afd665fec5a5c.jpg?tr=h-auto%2Cw-256%2Cc-at_max"
             }
           />
