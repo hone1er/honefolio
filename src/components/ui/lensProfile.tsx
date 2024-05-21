@@ -90,7 +90,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
     }
   }
   return (
-    <Card className="h-full w-full rounded-md border border-gray-500 bg-purple-800 bg-opacity-10 bg-clip-padding backdrop-blur-xl backdrop-filter">
+    <Card className="h-full w-full rounded-md border border-gray-500 bg-purple-800 bg-opacity-10 bg-clip-padding backdrop-blur-lg backdrop-filter">
       <CardTitle className="pt-4 text-center text-gray-800">
         {isLoggedIn ? data?.handle?.suggestedFormatted.full : "lens/@hone1er"}
       </CardTitle>
@@ -213,13 +213,14 @@ export function LensProfileCardSection() {
           </div>
         </div>
         <div className="relative flex flex-auto flex-col gap-4 rounded-md">
-          <div className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#6d28d9] opacity-50 blur-[100px]" />
+          <div className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#6d28d9] opacity-50 blur-[350px]" />
           <Image
             src={"/images/design.png"}
             alt="Lens Protocol"
             style={{
               borderRadius: "2.5rem",
             }}
+            sizes="300px"
             fill
           />
           <LensProfileCard isLoggedIn={isLoggedIn} />
