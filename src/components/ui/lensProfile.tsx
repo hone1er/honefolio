@@ -14,6 +14,7 @@ import {
 } from "@lens-protocol/react-web";
 import { useAccount } from "wagmi";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function LensProfileLogin({
   isLoggedIn,
@@ -89,38 +90,37 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
     }
   }
   return (
-    <Card className="w-full max-w-sm place-self-end">
-      <CardTitle className="pt-4 text-center">
-        {" "}
+    <Card className="h-full w-full rounded-md border border-gray-100 bg-purple-800 bg-opacity-10 bg-clip-padding backdrop-blur-lg backdrop-filter">
+      <CardTitle className="pt-4 text-center text-white">
         {isLoggedIn ? data?.handle?.suggestedFormatted.full : "lens/@hone1er"}
       </CardTitle>
       <CardContent className="flex flex-col items-center gap-4 p-6">
-        <Avatar className="h-20 w-20">
+        <Avatar className="h-20 w-20 rounded-full border-2 border-white">
           <AvatarImage
             alt="@shadcn"
             src={
               "https://ik.imagekit.io/lens/media-snapshot/3986968c836357ca1fff03bf9318bfcfa694c49b72240ea31e0afd665fec5a5c.jpg?tr=h-auto%2Cw-256%2Cc-at_max"
             }
           />
-          <AvatarFallback>
+          <AvatarFallback className="text-white">
             {isLoggedIn ? data?.metadata?.displayName : "hone"}
           </AvatarFallback>
         </Avatar>
         <div className="space-y-1 text-center">
-          <h4 className="text-lg font-semibold">
+          <h4 className="text-lg font-semibold text-white">
             {isLoggedIn ? data?.metadata?.displayName : "hone"}
           </h4>
-          <p className="max-w-60 text-sm text-gray-500 dark:text-gray-400">
+          <p className="max-w-60 text-sm text-gray-200 dark:text-gray-300">
             {isLoggedIn
               ? data?.metadata?.bio
               : "Full-stack Web3 developer with frontend focus"}
           </p>
         </div>
         <div className="flex gap-4">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-200 dark:text-gray-300">
             {data?.stats.following} Following
           </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-200 dark:text-gray-300">
             {data?.stats.followers} Followers
           </p>
         </div>
@@ -133,7 +133,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             !isLoggedIn ||
             loadingFollow
           }
-          className="w-full transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-900"
+          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-900"
           variant="outline"
         >
           Follow
@@ -145,7 +145,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             !isLoggedIn ||
             loadingUnfollow
           }
-          className="w-full transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-900"
+          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-900"
           variant="outline"
         >
           Unfollow
@@ -166,7 +166,7 @@ export function LensProfileCardSection() {
   const data = profiles?.[0];
   console.log("🚀 ~ LensProfileCardSection ~ data:", data);
   return (
-    <section className="py-20 dark:bg-gray-800" id="lens-profile">
+    <section className="py-20 dark:bg-gray-800 " id="lens-profile">
       <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
         <div className="space-y-4 ">
           <h2 className="text-3xl font-bold tracking-tight">Lens Protocol</h2>
@@ -212,7 +212,8 @@ export function LensProfileCardSection() {
             )}
           </div>
         </div>
-        <div className="flex flex-auto flex-col gap-4">
+        <div className="relative flex flex-auto flex-col gap-4">
+          <Image src={"/images/design.png"} alt="Lens Protocol" fill />
           <LensProfileCard isLoggedIn={isLoggedIn} />
         </div>
       </div>
