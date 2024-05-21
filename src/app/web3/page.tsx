@@ -9,10 +9,7 @@ import { Card, CardContent } from "~/components/ui/card";
 import { PropsWithChildren } from "react";
 import { Separator } from "~/components/ui/separator";
 import { MintCard } from "../../components/ui/mintCard";
-import LensProfile, {
-  LensProfileCard,
-  LensProfileCardSection,
-} from "~/components/ui/lensProfile";
+import { LensProfileCardSection } from "~/components/ui/lensProfile";
 
 export default function Component() {
   return (
