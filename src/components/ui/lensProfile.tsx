@@ -15,6 +15,7 @@ import {
 import { useAccount } from "wagmi";
 import { useState } from "react";
 import Image from "next/image";
+import { Separator } from "./separator";
 
 export default function LensProfileLogin({
   isLoggedIn,
@@ -89,23 +90,29 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
       console.log("🚀 ~ handleFollow ~ e:", e);
     }
   }
+  console.log("🚀 ~ LensProfileCard ~ data:", data);
   return (
     <Card className="h-full w-full rounded-md border border-gray-500 bg-purple-800 bg-opacity-20 bg-clip-padding backdrop-blur-lg backdrop-filter">
-      <CardTitle className="pt-4 text-center text-gray-100">
-        lens/@hone1er
-      </CardTitle>
-      <CardContent className="flex flex-col items-center gap-4 p-6">
-        <Avatar className="h-20 w-20 rounded-full border-2 border-white">
-          <AvatarImage
-            alt="@shadcn"
-            src={
-              "https://ik.imagekit.io/lens/media-snapshot/3986968c836357ca1fff03bf9318bfcfa694c49b72240ea31e0afd665fec5a5c.jpg?tr=h-auto%2Cw-256%2Cc-at_max"
-            }
-          />
-          <AvatarFallback className="text-gray-100">hone</AvatarFallback>
-        </Avatar>
-        <div className="space-y-1 text-center">
-          <h4 className="text-lg font-semibold text-gray-100">hone</h4>
+      <CardContent className="flex flex-col items-center gap-8 p-6">
+        <div className="flex flex-row gap-4">
+          <Avatar className="h-20 w-20 rounded-full border-2 border-white">
+            <AvatarImage
+              alt="@shadcn"
+              src={
+                "https://ik.imagekit.io/lens/media-snapshot/3986968c836357ca1fff03bf9318bfcfa694c49b72240ea31e0afd665fec5a5c.jpg?tr=h-auto%2Cw-256%2Cc-at_max"
+              }
+            />
+            <AvatarFallback className="text-gray-100">hone</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col place-self-end">
+            <h3 className="text-md  text-gray-100">hone</h3>
+            <h3 className="text-md font-semibold text-gray-100">
+              lens/hone1er
+            </h3>
+          </div>
+        </div>
+        <div className="space-y-4 text-center">
+          <Separator className="bg-gray-600" />
           <p className="max-w-60 text-sm text-gray-300 dark:text-gray-300">
             Full-stack Web3 developer with frontend focus
           </p>
