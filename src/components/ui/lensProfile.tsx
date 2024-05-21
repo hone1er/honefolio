@@ -90,8 +90,8 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
     }
   }
   return (
-    <Card className="h-full w-full rounded-md border border-gray-100 bg-purple-800 bg-opacity-10 bg-clip-padding backdrop-blur-lg backdrop-filter">
-      <CardTitle className="pt-4 text-center text-white">
+    <Card className="h-full w-full rounded-md border border-gray-500 bg-purple-800 bg-opacity-10 bg-clip-padding backdrop-blur-xl backdrop-filter">
+      <CardTitle className="pt-4 text-center text-gray-800">
         {isLoggedIn ? data?.handle?.suggestedFormatted.full : "lens/@hone1er"}
       </CardTitle>
       <CardContent className="flex flex-col items-center gap-4 p-6">
@@ -102,25 +102,25 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
               "https://ik.imagekit.io/lens/media-snapshot/3986968c836357ca1fff03bf9318bfcfa694c49b72240ea31e0afd665fec5a5c.jpg?tr=h-auto%2Cw-256%2Cc-at_max"
             }
           />
-          <AvatarFallback className="text-white">
+          <AvatarFallback className="text-gray-900">
             {isLoggedIn ? data?.metadata?.displayName : "hone"}
           </AvatarFallback>
         </Avatar>
         <div className="space-y-1 text-center">
-          <h4 className="text-lg font-semibold text-white">
+          <h4 className="text-lg font-semibold text-gray-800">
             {isLoggedIn ? data?.metadata?.displayName : "hone"}
           </h4>
-          <p className="max-w-60 text-sm text-gray-200 dark:text-gray-300">
+          <p className="max-w-60 text-sm text-gray-800 dark:text-gray-300">
             {isLoggedIn
               ? data?.metadata?.bio
               : "Full-stack Web3 developer with frontend focus"}
           </p>
         </div>
         <div className="flex gap-4">
-          <p className="text-sm text-gray-200 dark:text-gray-300">
+          <p className="text-sm text-gray-800 dark:text-gray-300">
             {data?.stats.following} Following
           </p>
-          <p className="text-sm text-gray-200 dark:text-gray-300">
+          <p className="text-sm text-gray-800 dark:text-gray-300">
             {data?.stats.followers} Followers
           </p>
         </div>
@@ -212,8 +212,16 @@ export function LensProfileCardSection() {
             )}
           </div>
         </div>
-        <div className="relative flex flex-auto flex-col gap-4">
-          <Image src={"/images/design.png"} alt="Lens Protocol" fill />
+        <div className="relative flex flex-auto flex-col gap-4 rounded-md">
+          <div className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#6d28d9] opacity-50 blur-[100px]" />
+          <Image
+            src={"/images/design.png"}
+            alt="Lens Protocol"
+            style={{
+              borderRadius: "2.5rem",
+            }}
+            fill
+          />
           <LensProfileCard isLoggedIn={isLoggedIn} />
         </div>
       </div>
