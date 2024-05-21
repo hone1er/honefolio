@@ -1,6 +1,4 @@
 import { WorkCard } from "./../../components/ui/workCard";
-
-import Image from "next/image";
 import React from "react";
 
 export default function Component() {
