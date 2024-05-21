@@ -2,7 +2,7 @@ import { TechIcons } from "./../components/ui/techIcons";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Component() {
+export default async function Component() {
   return (
     <>
       <main className="flex-1 scroll-smooth transition-all duration-500">

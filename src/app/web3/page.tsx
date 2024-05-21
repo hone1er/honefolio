@@ -9,8 +9,12 @@ import { Card, CardContent } from "~/components/ui/card";
 import { PropsWithChildren } from "react";
 import { Separator } from "~/components/ui/separator";
 import { MintCard } from "../../components/ui/mintCard";
+import LensProfile, {
+  LensProfileCard,
+  LensProfileCardSection,
+} from "~/components/ui/lensProfile";
 
-export default async function Component() {
+export default function Component() {
   return (
     <>
       <main className="flex-1">
@@ -49,21 +53,10 @@ export default async function Component() {
         <Separator className="py-1" />
 
         <Separator className="py-1" />
+
+        <LensProfileCardSection />
         <section className="py-20" id="about">
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
-            <div className="flex justify-center">
-              <Image
-                alt="Developer"
-                className="rounded-full"
-                height="300"
-                src="/images/computerPep.jpeg"
-                style={{
-                  aspectRatio: "300/300",
-                  objectFit: "cover",
-                }}
-                width="300"
-              />
-            </div>
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tight">
                 About the Developer
