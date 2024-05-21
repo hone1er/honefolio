@@ -2,12 +2,23 @@
 
 import { createWeb3Modal } from "@web3modal/wagmi/react";
 import { State, WagmiProvider, createConfig, http } from "wagmi";
-import { arbitrum, base, baseSepolia, mainnet } from "wagmi/chains";
+import {
+  arbitrum,
+  base,
+  baseSepolia,
+  mainnet,
+  polygon,
+  polygonAmoy,
+} from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PropsWithChildren } from "react";
-import { coinbaseWallet } from "wagmi/connectors";
+import { coinbaseWallet, injected, metaMask } from "wagmi/connectors";
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
+import { LensProvider } from "@lens-protocol/react-web";
+import { LensConfig, production, development } from "@lens-protocol/react-web";
+import { bindings } from "@lens-protocol/wagmi";
+
 interface Props extends PropsWithChildren {
   initialState?: State;
   session?: Session;
@@ -26,7 +37,14 @@ const metadata = {
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-const chains = [baseSepolia, base, mainnet, arbitrum] as const;
+const chains = [
+  baseSepolia,
+  base,
+  polygon,
+  polygonAmoy,
+  mainnet,
+  arbitrum,
+] as const;
 // const config = defaultWagmiConfig({
 //   chains,
 //   projectId: projectId,
@@ -40,15 +58,36 @@ const config = createConfig({
       appName: "Honefolio",
       chainId: baseSepolia.id,
     }),
+    injected(),
+    metaMask(),
   ],
   ssr: true,
   transports: {
+    [polygon.id]: http(),
+    [polygonAmoy.id]: http(),
     [baseSepolia.id]: http(),
     [base.id]: http(),
     [mainnet.id]: http(),
     [arbitrum.id]: http(),
   },
 });
+
+let lensConfig: LensConfig;
+if (process.env.NODE_ENV === "development") {
+  lensConfig = {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment , @typescript-eslint/no-unsafe-call
+    bindings: bindings(config),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    environment: production,
+  };
+} else {
+  lensConfig = {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment , @typescript-eslint/no-unsafe-call
+    bindings: bindings(config),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    environment: production,
+  };
+}
 
 // 3. Create modal
 createWeb3Modal({
@@ -64,7 +103,8 @@ export function Web3Provider({ initialState, session, children }: Props) {
     <SessionProvider session={session}>
       <WagmiProvider initialState={initialState} config={config}>
         <QueryClientProvider client={queryClient}>
-          {children}
+          {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment  */}
+          <LensProvider config={lensConfig}>{children}</LensProvider>
         </QueryClientProvider>
       </WagmiProvider>
     </SessionProvider>
