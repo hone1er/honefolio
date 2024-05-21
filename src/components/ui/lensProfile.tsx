@@ -183,21 +183,35 @@ export function LensProfileCardSection() {
             {!!data ? (
               <div className="flex flex-col gap-8">
                 <p> Login to your Lens profile and give me a follow!</p>
-                <div>
+                <div className="flex gap-4">
                   <LensProfileLogin
                     isLoggedIn={isLoggedIn}
                     setIsLoggedIn={setIsLoggedIn}
                   />
+                  <a
+                    href="https://docs.lens.xyz/docs/what-is-lens"
+                    target="_blank"
+                  >
+                    <Button size="lg">Learn More</Button>
+                  </a>
                 </div>
               </div>
             ) : (
               <div className="flex flex-col gap-8">
                 <p>Don&apos;t have a Lens profile yet? Create one now!</p>
-                <a href="https://lens.xyz" target="_blank">
-                  <Button size="lg" className="text-black" variant="outline">
-                    Create Profile
-                  </Button>
-                </a>
+                <div className="flex gap-4">
+                  <a href="https://lens.xyz" target="_blank">
+                    <Button size="lg" className="text-black" variant="outline">
+                      Create Profile
+                    </Button>
+                  </a>
+                  <a
+                    href="https://docs.lens.xyz/docs/what-is-lens"
+                    target="_blank"
+                  >
+                    <Button size="lg">Learn More</Button>
+                  </a>
+                </div>
               </div>
             )}
           </div>

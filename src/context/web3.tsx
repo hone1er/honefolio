@@ -78,7 +78,7 @@ if (process.env.NODE_ENV === "development") {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment , @typescript-eslint/no-unsafe-call
     bindings: bindings(config),
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    environment: development,
+    environment: production,
   };
 } else {
   lensConfig = {

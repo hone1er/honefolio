@@ -55,13 +55,13 @@ export default function Component() {
         <Separator className="py-1" />
 
         <LensProfileCardSection />
-        <section className="py-20" id="about">
+        <section className="bg-gray-50 py-20" id="about">
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-700">
                 About the Developer
               </h2>
-              <p>
+              <p className="space-y-4 text-gray-700">
                 A dude who loves to code and build cool stuff. <br />
                 <br />
                 Love the freedom that crypto and web3 represents and the
