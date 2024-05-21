@@ -7,7 +7,7 @@ export default function Component() {
     <>
       <main className="flex-1 scroll-smooth transition-all duration-500">
         <section className=" w-full bg-[#2d2d2d] py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container mx-auto flex flex-col items-center gap-6 px-4 text-center md:px-6">
+          <div className="container mx-auto flex w-fit flex-col items-start  gap-6 px-4 text-center md:px-6">
             <div className="space-y-4">
               <h1
                 id="gradient-text"
