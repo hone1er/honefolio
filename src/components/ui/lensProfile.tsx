@@ -90,8 +90,8 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
     }
   }
   return (
-    <Card className="h-full w-full rounded-md border border-gray-500 bg-purple-800 bg-opacity-10 bg-clip-padding backdrop-blur-lg backdrop-filter">
-      <CardTitle className="pt-4 text-center text-gray-900">
+    <Card className="h-full w-full rounded-md border border-gray-500 bg-purple-800 bg-opacity-20 bg-clip-padding backdrop-blur-lg backdrop-filter">
+      <CardTitle className="pt-4 text-center text-gray-100">
         lens/@hone1er
       </CardTitle>
       <CardContent className="flex flex-col items-center gap-4 p-6">
@@ -102,21 +102,21 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
               "https://ik.imagekit.io/lens/media-snapshot/3986968c836357ca1fff03bf9318bfcfa694c49b72240ea31e0afd665fec5a5c.jpg?tr=h-auto%2Cw-256%2Cc-at_max"
             }
           />
-          <AvatarFallback className="text-gray-900">hone</AvatarFallback>
+          <AvatarFallback className="text-gray-100">hone</AvatarFallback>
         </Avatar>
         <div className="space-y-1 text-center">
-          <h4 className="text-lg font-semibold text-gray-900">hone</h4>
-          <p className="max-w-60 text-sm text-gray-800 dark:text-gray-300">
+          <h4 className="text-lg font-semibold text-gray-100">hone</h4>
+          <p className="max-w-60 text-sm text-gray-300 dark:text-gray-300">
             Full-stack Web3 developer with frontend focus
           </p>
         </div>
         <div className="flex gap-4">
           {isLoggedIn ? (
             <>
-              <p className="text-sm text-gray-800 dark:text-gray-300">
+              <p className="text-sm text-gray-300 dark:text-gray-300">
                 {data?.stats.following} Following
               </p>
-              <p className="text-sm text-gray-800 dark:text-gray-300">
+              <p className="text-sm text-gray-300 dark:text-gray-300">
                 {data?.stats.followers} Followers
               </p>
             </>
@@ -131,7 +131,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             !isLoggedIn ||
             loadingFollow
           }
-          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-900"
+          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-100 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
           variant="outline"
         >
           Follow
@@ -143,7 +143,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             !isLoggedIn ||
             loadingUnfollow
           }
-          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-900"
+          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-100 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
           variant="outline"
         >
           Unfollow
@@ -210,17 +210,9 @@ export function LensProfileCardSection() {
             )}
           </div>
         </div>
-        <div className="relative flex flex-auto flex-col gap-4 rounded-md">
-          <div className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#6d28d9] opacity-50 blur-[350px]" />
-          <Image
-            src={"/images/design.png"}
-            alt="Lens Protocol"
-            style={{
-              borderRadius: "2.5rem",
-            }}
-            sizes="300px"
-            fill
-          />
+        <div className="relative flex flex-auto flex-col gap-4 overflow-hidden rounded-md">
+          <div className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#6d28d9] opacity-50 blur-[60px]" />
+
           <LensProfileCard isLoggedIn={isLoggedIn} />
         </div>
       </div>
