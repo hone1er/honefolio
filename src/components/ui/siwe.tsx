@@ -22,7 +22,7 @@ export function SignInWithEthereum() {
   const [signature, setSignature] = useState<Hex | undefined>(undefined);
   const [valid, setValid] = useState<boolean | undefined>(undefined);
   const client = usePublicClient();
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const { toast } = useToast();
 
   const { signMessageAsync } = useSignMessage({
@@ -73,8 +73,15 @@ export function SignInWithEthereum() {
   }, [signature, account]);
 
   useEffect(() => {
-    checkValid().catch(console.error);
+    void checkValid();
   }, [signature, account]);
+
+  useEffect(() => {
+    if (!session) return;
+    if (session?.user.id !== account.address) {
+      void signOut();
+    }
+  }, [session, account]);
 
   const promptToSign = async () => {
     if (status === "authenticated") {
