@@ -52,12 +52,12 @@ export default function Component() {
         <Separator className="py-1" />
 
         <LensProfileCardSection />
-        <section className="bg-gray-50 py-20" id="about">
+        <section className="bg-gray-200 py-20" id="about">
           <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
             <div className="flex justify-center">
               <Image
                 alt="Developer"
-                className="rounded-full"
+                className="rounded-lg"
                 height="300"
                 src="/images/computerPep.jpeg"
                 style={{
@@ -72,7 +72,7 @@ export default function Component() {
                 About the Developer
               </h2>
               <p className="space-y-4 text-gray-700">
-                A driven builder
+                A driven builder and a cool dude
                 <br />
                 <br />
                 Love the freedom that crypto and web3 represents and the

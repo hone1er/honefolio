@@ -1,7 +1,7 @@
 "use client";
 import { AvatarImage, AvatarFallback, Avatar } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
-import { CardContent, Card, CardTitle } from "~/components/ui/card";
+import { CardContent, Card } from "~/components/ui/card";
 import {
   ProfileId,
   TriStateValue,
@@ -14,7 +14,6 @@ import {
 } from "@lens-protocol/react-web";
 import { useAccount } from "wagmi";
 import { useState } from "react";
-import Image from "next/image";
 import { Separator } from "./separator";
 
 export default function LensProfileLogin({
@@ -90,11 +89,11 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
       console.log("🚀 ~ handleFollow ~ e:", e);
     }
   }
-  console.log("🚀 ~ LensProfileCard ~ data:", data);
+
   return (
-    <Card className="h-full w-full rounded-md border border-gray-500 bg-purple-800 bg-opacity-20 bg-clip-padding backdrop-blur-lg backdrop-filter">
-      <CardContent className="flex flex-col items-center gap-8 p-6">
-        <div className="flex flex-row gap-4">
+    <Card className="h-full w-full rounded-md border border-gray-500 bg-[#4061452b] bg-opacity-20 bg-clip-padding backdrop-blur-lg backdrop-filter">
+      <CardContent className="flex flex-col items-center gap-6 p-6">
+        <div className="flex w-60 flex-row gap-4">
           <Avatar className="h-20 w-20 rounded-full border-2 border-white">
             <AvatarImage
               alt="@shadcn"
@@ -105,30 +104,31 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             <AvatarFallback className="text-gray-100">hone</AvatarFallback>
           </Avatar>
           <div className="flex flex-col place-self-end">
-            <h3 className="text-md  text-gray-100">hone</h3>
-            <h3 className="text-md font-semibold text-gray-100">
+            <h3 className="text-md font-semibold text-gray-100">hone</h3>
+            <h3 className="text-md font-extralight text-gray-200">
               lens/hone1er
             </h3>
           </div>
         </div>
         <div className="space-y-4 text-center">
-          <Separator className="bg-gray-600" />
-          <p className="max-w-60 text-sm text-gray-300 dark:text-gray-300">
+          {isLoggedIn ? (
+            <div className="flex w-60 justify-start gap-4">
+              <>
+                <p className="text-sm text-gray-300 dark:text-gray-300">
+                  {data?.stats.following} Following
+                </p>
+                <p className="text-sm text-gray-300 dark:text-gray-300">
+                  {data?.stats.followers} Followers
+                </p>
+              </>
+            </div>
+          ) : null}
+          <Separator className="mt-0 bg-gray-600" />
+          <p className="mt-0 max-w-60 text-sm text-gray-300 dark:text-gray-300">
             Full-stack Web3 developer with frontend focus
           </p>
         </div>
-        <div className="flex gap-4">
-          {isLoggedIn ? (
-            <>
-              <p className="text-sm text-gray-300 dark:text-gray-300">
-                {data?.stats.following} Following
-              </p>
-              <p className="text-sm text-gray-300 dark:text-gray-300">
-                {data?.stats.followers} Followers
-              </p>
-            </>
-          ) : null}
-        </div>
+
         <Button
           onClick={() => {
             void handleFollow();
@@ -218,7 +218,7 @@ export function LensProfileCardSection() {
           </div>
         </div>
         <div className="relative flex flex-auto flex-col gap-4 overflow-hidden rounded-md">
-          <div className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-[#4c1d95] to-[#6d28d9] opacity-50 blur-[60px]" />
+          <div className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-[#cedb6f] to-[#28d942] opacity-50 blur-[60px]" />
 
           <LensProfileCard isLoggedIn={isLoggedIn} />
         </div>
