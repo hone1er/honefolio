@@ -133,32 +133,34 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
           </p>
         </div>
 
-        <Button
-          onClick={() => {
-            void handleFollow();
-          }}
-          disabled={
-            data?.operations.canFollow === TriStateValue.No ||
-            !isLoggedIn ||
-            loadingFollow
-          }
-          className="w-full  min-w-[140px] border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
-          variant="outline"
-        >
-          Follow
-        </Button>
-        <Button
-          onClick={handleUnfollow}
-          disabled={
-            data?.operations.canUnfollow === false ||
-            !isLoggedIn ||
-            loadingUnfollow
-          }
-          className="w-full min-w-[140px] border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
-          variant="outline"
-        >
-          Unfollow
-        </Button>
+        <div className="flex flex-row gap-2">
+          <Button
+            onClick={() => {
+              void handleFollow();
+            }}
+            disabled={
+              data?.operations.canFollow === TriStateValue.No ||
+              !isLoggedIn ||
+              loadingFollow
+            }
+            className="w-full  min-w-[140px] border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
+            variant="outline"
+          >
+            Follow
+          </Button>
+          <Button
+            onClick={handleUnfollow}
+            disabled={
+              data?.operations.canUnfollow === false ||
+              !isLoggedIn ||
+              loadingUnfollow
+            }
+            className="w-full min-w-[140px] border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
+            variant="outline"
+          >
+            Unfollow
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

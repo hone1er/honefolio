@@ -64,7 +64,7 @@ export default function TopProfiles() {
         </div>
         <div
           ref={scope}
-          className="mx-auto flex w-[4000px] max-w-6xl flex-row gap-6  overflow-x-scroll p-6 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          className="mx-auto flex w-[4000px] max-w-6xl flex-row gap-6 overflow-x-scroll  p-6 md:grid md:w-full md:grid-cols-3  lg:grid-cols-3 xl:grid-cols-4"
         >
           {profiles?.slice(0, 8)?.map((profile) => (
             <div
@@ -143,7 +143,8 @@ function FollowButton({ profile }: { profile: Profile }) {
         (profile.operations.canFollow === TriStateValue.No &&
           !profile.operations.canUnfollow) ||
         loadingFollow ||
-        loadingUnfollow
+        loadingUnfollow ||
+        !!profile.followModule?.contract.address
       }
     >
       {profile.operations.canUnfollow ? (
