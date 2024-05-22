@@ -71,15 +71,15 @@ export function CollapsibleTech({ techList = tec }: TechListProps) {
   return (
     <Collapsible className="transition-all duration-500">
       <div className="flex w-full flex-col gap-4">
-        <div className="relative z-40 flex items-center justify-between space-x-4  px-4">
-          <h4 className="text-sm font-semibold">
+        <div className="relative z-40 flex max-w-60 items-center justify-between space-x-4 ">
+          <h4 className="whitespace-nowrap text-sm font-semibold">
             What was used to build this?
           </h4>
-          <CollapsibleTrigger asChild>
+          <CollapsibleTrigger asChild className="ml-0">
             <Button
               variant="ghost"
               size="sm"
-              className="w-9 p-0"
+              className="ml-0 w-9 p-0"
               onClick={() => {
                 setIsExpanded(!isExpanded);
                 setAnimate(!animate);
@@ -93,7 +93,7 @@ export function CollapsibleTech({ techList = tec }: TechListProps) {
           </CollapsibleTrigger>
         </div>
         <CollapsibleContent ref={scope}>
-          <ul className="flex list-inside list-none flex-col space-y-2 px-4">
+          <ul className="flex max-w-full list-inside list-none flex-col space-y-2">
             {techList.map((tech) => (
               <a
                 key={tech.title}
