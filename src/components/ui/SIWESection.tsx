@@ -50,7 +50,7 @@ export function SIWE() {
           <div className="flex gap-4">
             <SignInWithEthereum />
             <a href="https://login.xyz/" target="_blank">
-              <Button size="lg" variant="outline">
+              <Button className=" min-w-[140px]" size="lg" variant="outline">
                 Learn More
               </Button>
             </a>

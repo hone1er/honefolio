@@ -31,7 +31,11 @@ export default function Component() {
               <div className="flex gap-4">
                 <ConnectButton />
                 <a href="https://ethereum.org/en/web3/" target="_blank">
-                  <Button size="lg" variant="outline" className="text-black">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="min-w-[140px]  text-black"
+                  >
                     Learn More
                   </Button>
                 </a>
@@ -89,7 +93,7 @@ export default function Component() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Button size="lg">
+                  <Button size="lg" className=" min-w-[140px]">
                     <LinkedinIcon className="mr-2 h-4 w-4" />
                     LinkedIn
                   </Button>
@@ -99,7 +103,11 @@ export default function Component() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Button size="lg" variant="outline" className="text-black">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="min-w-[140px] text-black"
+                  >
                     <TwitterIcon className="mr-2 h-4 w-4" />
                     Twitter
                   </Button>
@@ -223,7 +231,7 @@ function SendETHServer({ children }: PropsWithChildren) {
               href="https://ethereum.org/en/developers/docs/intro-to-ether/#transferring-ether"
               target="_blank"
             >
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className=" min-w-[140px]">
                 Learn More
               </Button>
             </a>

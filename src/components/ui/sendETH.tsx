@@ -82,7 +82,7 @@ export function SendETH() {
         />
         <Input name="value" placeholder="0.05" required />
         <Button
-          className="w-full"
+          className="w-full  min-w-[140px]"
           size={"lg"}
           type="submit"
           disabled={!isAddress(to) || isLoadingTxReciept}

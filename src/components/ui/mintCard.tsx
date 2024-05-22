@@ -33,7 +33,7 @@ export function MintCard({ children }: PropsWithChildren) {
               target="_blank"
               rel="noreferrer"
             >
-              <Button size="lg">
+              <Button className=" min-w-[140px]" size="lg">
                 <CodeIcon className="mr-2 h-4 w-4" />
                 Read Contract
               </Button>
@@ -81,7 +81,11 @@ export function MintCard({ children }: PropsWithChildren) {
                       View your minted NFT here.
                     </p>
                     <a href="ipfs://bafybeif5755vwbgsifizxv2r5zknnjnwo57kayd2lbviinmvdbtjvwm2ce/">
-                      <Button size="lg" variant="outline">
+                      <Button
+                        className=" min-w-[140px]"
+                        size="lg"
+                        variant="outline"
+                      >
                         View NFT
                       </Button>
                     </a>{" "}

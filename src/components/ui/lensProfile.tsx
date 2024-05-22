@@ -9,12 +9,14 @@ import {
   useLogin,
   useLogout,
   useProfile,
+  useProfileFollowers,
   useProfiles,
   useUnfollow,
 } from "@lens-protocol/react-web";
 import { useAccount } from "wagmi";
 import { useState } from "react";
 import { Separator } from "./separator";
+import TopProfiles from "./topProfiles";
 
 export default function LensProfileLogin({
   isLoggedIn,
@@ -56,7 +58,7 @@ export default function LensProfileLogin({
       }}
       size="lg"
       variant="outline"
-      className="text-black"
+      className="min-w-[140px] text-black"
       disabled={loadingLogin || loadingLogout}
     >
       {isLoggedIn ? "Logout" : "Login"}
@@ -140,7 +142,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             !isLoggedIn ||
             loadingFollow
           }
-          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
+          className="w-full  min-w-[140px] border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
           variant="outline"
         >
           Follow
@@ -152,7 +154,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             !isLoggedIn ||
             loadingUnfollow
           }
-          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
+          className="w-full min-w-[140px] border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
           variant="outline"
         >
           Unfollow
@@ -195,7 +197,9 @@ export function LensProfileCardSection() {
                     href="https://docs.lens.xyz/docs/what-is-lens"
                     target="_blank"
                   >
-                    <Button size="lg">Learn More</Button>
+                    <Button className=" min-w-[140px]" size="lg">
+                      Learn More
+                    </Button>
                   </a>
                 </div>
               </div>
@@ -204,7 +208,11 @@ export function LensProfileCardSection() {
                 <p>Don&apos;t have a Lens profile yet? Create one now!</p>
                 <div className="flex gap-4">
                   <a href="https://lens.xyz" target="_blank">
-                    <Button size="lg" className="text-black" variant="outline">
+                    <Button
+                      size="lg"
+                      className="min-w-[140px] text-black"
+                      variant="outline"
+                    >
                       Create Profile
                     </Button>
                   </a>
@@ -212,7 +220,9 @@ export function LensProfileCardSection() {
                     href="https://docs.lens.xyz/docs/what-is-lens"
                     target="_blank"
                   >
-                    <Button size="lg">Learn More</Button>
+                    <Button className=" min-w-[140px]" size="lg">
+                      Learn More
+                    </Button>
                   </a>
                 </div>
               </div>
@@ -223,6 +233,7 @@ export function LensProfileCardSection() {
           <LensProfileCard isLoggedIn={isLoggedIn} />
         </div>
       </div>
+      {isLoggedIn ? <TopProfiles /> : null}
     </section>
   );
 }

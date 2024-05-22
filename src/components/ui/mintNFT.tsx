@@ -85,7 +85,7 @@ export function MintNFTButton() {
     <Button
       size="lg"
       variant="outline"
-      className="text-black"
+      className="min-w-[140px] text-black"
       onClick={handleMintNFT}
       disabled={status === "pending"}
     >

@@ -108,8 +108,8 @@ export function SignInWithEthereum() {
   };
   return (
     <>
-      <Button size={"lg"} onClick={promptToSign}>
-        {status !== "authenticated" ? "Sign In with Ethereum" : "Sign out"}
+      <Button className=" min-w-[140px]" size={"lg"} onClick={promptToSign}>
+        {status !== "authenticated" ? "SIWE" : "Sign out"}
       </Button>
     </>
   );

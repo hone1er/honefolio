@@ -58,7 +58,7 @@ export const AddressInput = ({
           onRecipientChange(ensAddy ?? "", true);
           setIsValidToAddress(true);
         }}
-        className={`text-neutral-content relative bottom-3 z-10 flex w-full max-w-80 flex-row items-center justify-between rounded-b-[8px] bg-slate-100  px-4 py-2 transition-all duration-500 hover:cursor-pointer md:px-4 ${
+        className={`text-neutral-content relative bottom-3 z-10 flex w-full min-w-[140px] max-w-80 flex-row items-center justify-between rounded-b-[8px]  bg-slate-100 px-4 py-2 transition-all duration-500 hover:cursor-pointer md:px-4 ${
           ensAddy
             ? "max-w-full translate-y-0 opacity-100"
             : "pointer-events-none max-w-0 -translate-y-12 opacity-0"
