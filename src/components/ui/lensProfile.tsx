@@ -17,6 +17,7 @@ import { useAccount } from "wagmi";
 import { useState } from "react";
 import { Separator } from "./separator";
 import TopProfiles from "./topProfiles";
+import CommentBox from "./commentBox";
 
 export default function LensProfileLogin({
   isLoggedIn,
@@ -235,7 +236,12 @@ export function LensProfileCardSection() {
           <LensProfileCard isLoggedIn={isLoggedIn} />
         </div>
       </div>
-      {isLoggedIn ? <TopProfiles /> : null}
+      {isLoggedIn && !!data ? (
+        <div className="flex flex-col gap-8">
+          <TopProfiles />
+          <CommentBox profile={data} />
+        </div>
+      ) : null}
     </section>
   );
 }
