@@ -55,7 +55,7 @@ export default function TopProfiles() {
 
   return (
     <section className="overflow-hidden py-32">
-      <div className="mx-auto flex flex-col gap-6">
+      <div className="mx-auto flex min-h-80 flex-col gap-6">
         <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold">Top Accounts</h2>
           <p className="text-gray-500 dark:text-gray-400">
@@ -69,7 +69,7 @@ export default function TopProfiles() {
           {profiles?.slice(0, 8)?.map((profile) => (
             <div
               key={profile.id}
-              className="relative min-w-[258px] rounded-lg bg-white py-3 shadow-md transition-shadow duration-300 hover:shadow-lg dark:bg-gray-950"
+              className="relative min-w-[258px] rounded-lg bg-white py-3 opacity-0 shadow-md transition-shadow duration-300 hover:shadow-lg dark:bg-gray-950"
             >
               <FollowButton profile={profile} />
               <div className="flex items-center space-x-4 p-4">
