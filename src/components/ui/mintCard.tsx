@@ -5,6 +5,7 @@ import { Card, CardContent } from "~/components/ui/card";
 import { PropsWithChildren } from "react";
 import { useAccount, useReadContract } from "wagmi";
 import { erc721Abi } from "viem";
+import { CollapsibleTech } from "./CollapsibleTech";
 
 export function MintCard({ children }: PropsWithChildren) {
   const { address } = useAccount();
@@ -16,7 +17,7 @@ export function MintCard({ children }: PropsWithChildren) {
   });
 
   return (
-    <section className="py-20" id="nft">
+    <section className="min-h-[720px] py-20" id="nft">
       <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
         <div className="space-y-4 ">
           <h2 className="text-3xl font-bold tracking-tight">
@@ -39,9 +40,26 @@ export function MintCard({ children }: PropsWithChildren) {
             </a>
             {children}
           </div>
+          <CollapsibleTech
+            techList={[
+              {
+                title: "Solidity",
+                href: "https://soliditylang.org/",
+                zIndex: 50,
+              },
+              { title: "IPFS", href: "https://ipfs.tech/", zIndex: 40 },
+              { title: "Hardhat", href: "https://hardhat.org/", zIndex: 30 },
+              {
+                title: "Open Zeppelin",
+                href: "https://openzeppelin.com",
+                zIndex: 30,
+              },
+              { title: "WAGMI", href: "https://wagmi.sh/", zIndex: 20 },
+            ]}
+          />
         </div>
         <div className="flex justify-center">
-          <Card className="bg-slate-100">
+          <Card className="h-fit bg-slate-100">
             <CardContent className="flex flex-col items-center justify-center gap-4 p-8">
               <Image
                 alt="NFT"

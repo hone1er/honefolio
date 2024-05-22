@@ -91,9 +91,11 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
   }
 
   return (
-    <Card className="h-full w-full rounded-md border border-gray-500 bg-[#4061452b] bg-opacity-20 bg-clip-padding backdrop-blur-lg backdrop-filter">
+    <Card className="h-full w-full rounded-xl border border-gray-500 bg-[#ffffffd5] bg-opacity-20 bg-clip-padding shadow-2xl shadow-white backdrop-blur-lg backdrop-filter">
       <CardContent className="flex flex-col items-center gap-6 p-6">
-        <div className="flex w-60 flex-row gap-4">
+        <div className="relative flex w-60 flex-row gap-4">
+          <div className="absolute inset-0 right-32 z-0 rounded-full bg-gradient-to-r from-[#cedb6f] to-[#28d942] opacity-70 blur-[60px]" />
+
           <Avatar className="h-20 w-20 rounded-full border-2 border-white">
             <AvatarImage
               alt="@shadcn"
@@ -101,11 +103,11 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
                 "https://ik.imagekit.io/lens/media-snapshot/3986968c836357ca1fff03bf9318bfcfa694c49b72240ea31e0afd665fec5a5c.jpg?tr=h-auto%2Cw-256%2Cc-at_max"
               }
             />
-            <AvatarFallback className="text-gray-100">hone</AvatarFallback>
+            <AvatarFallback className="text-gray-900">hone</AvatarFallback>
           </Avatar>
           <div className="flex flex-col place-self-end">
-            <h3 className="text-md font-semibold text-gray-100">hone</h3>
-            <h3 className="text-md font-extralight text-gray-200">
+            <h3 className="text-md font-semibold text-gray-900">hone</h3>
+            <h3 className="text-md font-extralight text-gray-600">
               lens/hone1er
             </h3>
           </div>
@@ -114,17 +116,17 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
           {isLoggedIn ? (
             <div className="flex w-60 justify-start gap-4">
               <>
-                <p className="text-sm text-gray-300 dark:text-gray-300">
+                <p className="text-sm text-gray-800 dark:text-gray-300">
                   {data?.stats.following} Following
                 </p>
-                <p className="text-sm text-gray-300 dark:text-gray-300">
+                <p className="text-sm text-gray-800 dark:text-gray-300">
                   {data?.stats.followers} Followers
                 </p>
               </>
             </div>
           ) : null}
           <Separator className="mt-0 bg-gray-600" />
-          <p className="mt-0 max-w-60 text-sm text-gray-300 dark:text-gray-300">
+          <p className="mt-0 max-w-60 text-left text-sm text-gray-800 dark:text-gray-300">
             Full-stack Web3 developer with frontend focus
           </p>
         </div>
@@ -138,7 +140,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             !isLoggedIn ||
             loadingFollow
           }
-          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-100 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
+          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
           variant="outline"
         >
           Follow
@@ -150,7 +152,7 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
             !isLoggedIn ||
             loadingUnfollow
           }
-          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-100 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
+          className="w-full border border-white border-opacity-20 bg-white bg-opacity-10 text-gray-900 transition-colors hover:bg-gray-900 hover:text-gray-50 dark:hover:bg-gray-50 dark:hover:text-gray-100"
           variant="outline"
         >
           Unfollow
@@ -169,7 +171,7 @@ export function LensProfileCardSection() {
     },
   });
   const data = profiles?.[0];
-  console.log("🚀 ~ LensProfileCardSection ~ data:", data);
+
   return (
     <section className="py-20 dark:bg-gray-800 " id="lens-profile">
       <div className="container mx-auto grid max-w-3xl grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12">
@@ -217,9 +219,7 @@ export function LensProfileCardSection() {
             )}
           </div>
         </div>
-        <div className="relative flex flex-auto flex-col gap-4 overflow-hidden rounded-md">
-          <div className="absolute inset-0 z-0 rounded-full bg-gradient-to-r from-[#cedb6f] to-[#28d942] opacity-50 blur-[60px]" />
-
+        <div className=" flex flex-auto flex-col gap-4 overflow-hidden rounded-xl">
           <LensProfileCard isLoggedIn={isLoggedIn} />
         </div>
       </div>

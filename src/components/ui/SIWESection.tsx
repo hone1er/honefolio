@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Button } from "./button";
 import { SignInWithEthereum } from "./siwe";
 import { useSession } from "next-auth/react";
+import { CollapsibleTech } from "./CollapsibleTech";
 
 function fetchProtectedContent() {
   return fetch("/api/protected").then((res) => res.json());
@@ -19,12 +20,12 @@ export function SIWE() {
 
   return (
     <section
-      className="bg-gray-100 py-20 text-gray-500 dark:bg-gray-800 dark:text-gray-400"
+      className="min-h-[720px] bg-gray-100 py-20 text-gray-500 dark:bg-gray-800 dark:text-gray-400"
       id="hero"
     >
       <div className="container mx-auto flex max-w-3xl grid-cols-1 flex-col-reverse gap-8 px-4 md:grid md:grid-cols-2 md:gap-12">
         <div
-          className={`flex flex-col justify-center gap-4 ${status === "authenticated" ? "" : "blur-md"}`}
+          className={`flex flex-col justify-center gap-4 place-self-start ${status === "authenticated" ? "" : "blur-md"}`}
         >
           <h2 className="text-2xl font-bold tracking-tight text-gray-400 dark:text-gray-400">
             {data?.title ?? "Protected Content"}
@@ -54,6 +55,7 @@ export function SIWE() {
               </Button>
             </a>
           </div>
+          <CollapsibleTech />
         </div>
       </div>
     </section>

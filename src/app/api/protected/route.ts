@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const session = await getServerSession();
-  console.log("🚀 ~ GET ~ session:", session);
   if (!session) {
     return NextResponse.json({
       content: "You are not signed in with Ethereum.",
