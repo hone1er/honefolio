@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.4.0",
+    "@irys/sdk": "^0.2.0",
     "@lens-protocol/react-web": "^2.2.0",
     "@lens-protocol/wagmi": "^4.1.2",
     "@prisma/client": "^5.10.2",
