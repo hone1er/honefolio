@@ -53,10 +53,12 @@ const chains = [
 // });
 const config = createConfig({
   chains,
+
   connectors: [
     coinbaseWallet({
       appName: "Honefolio",
       chainId: baseSepolia.id,
+      preference: "smartWalletOnly",
     }),
     injected(),
     metaMask(),
