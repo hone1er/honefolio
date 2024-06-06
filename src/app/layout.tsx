@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import Link from "next/link";
 import { Web3Provider } from "~/context/web3";
 import { Toaster } from "~/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Joe V. - Software Engineer",
@@ -53,6 +54,7 @@ export default function RootLayout({
           <Web3Provider>{children}</Web3Provider>
           <Toaster />
         </div>
+        <Analytics />
       </body>
     </html>
   );
