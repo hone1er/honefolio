@@ -45,10 +45,20 @@ export default function Component() {
             title="Web Threes"
             description="A web3 version of the dice game Threes, built using Solidity and React."
             repository="https://github.com/hone1er/threes"
-            // liveDemo="https://alchemix.fi/"
             contributions={[
               "Identified and fixed a bug that prevented users from depositing funds to the wstETH vault. Fixing this bug increased the TVL of the vault by 25% within 48 hours",
               "Identified and fixed a bug in the frontend that was causing the UI to freeze",
+            ]}
+          />
+          <WorkCard
+            title="Lens Transfer"
+            description="A tool to help you manage Lens profiles. "
+            repository="https://github.com/hone1er/lens-transfer"
+            liveDemo="https://lens-transfer.vercel.app/"
+            contributions={[
+              "Added feature to transfer profiles between different accounts.",
+              "Add/Remove profile managers from your account.",
+              "Enable/Disable token guardians.",
             ]}
           />
         </div>
