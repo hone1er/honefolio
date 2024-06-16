@@ -50,17 +50,6 @@ export default function Component() {
               "Identified and fixed a bug in the frontend that was causing the UI to freeze",
             ]}
           />
-          <WorkCard
-            title="Lens Transfer"
-            description="A tool to help you manage Lens profiles. "
-            repository="https://github.com/hone1er/lens-transfer"
-            liveDemo="https://lens-transfer.vercel.app/"
-            contributions={[
-              "Added feature to transfer profiles between different accounts.",
-              "Add/Remove profile managers from your account.",
-              "Enable/Disable token guardians.",
-            ]}
-          />
         </div>
       </div>
     </>
