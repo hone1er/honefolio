@@ -34,16 +34,9 @@ export function TechIcons() {
   return (
     <div
       ref={scope}
-      className="grid w-full grid-cols-2 items-center justify-center gap-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-12 xl:grid-cols-6"
+      className="mx-auto grid w-full grid-cols-2 items-center justify-center gap-8 md:grid-cols-3 lg:grid-cols-2 lg:gap-12 xl:grid-cols-4"
     >
       {[
-        {
-          alt: "Next.js",
-          src: "/images/nextjs.svg",
-          text: "Next.js",
-          description:
-            "React framework for building server-rendered applications.",
-        },
         {
           alt: "TypeScript",
           src: "/images/ts-logo-round-512.png",
@@ -71,13 +64,6 @@ export function TechIcons() {
           description:
             "Contract-oriented, high-level language for implementing smart contracts.",
         },
-        {
-          alt: "Tailwind CSS",
-          src: "/images/tailwind-logo.svg",
-          text: "Tailwind CSS",
-          description:
-            "Utility-first CSS framework for rapidly building custom designs.",
-        },
       ].map(({ alt, src, text, description }, index) => (
         <div
           key={index}
@@ -95,7 +81,7 @@ export function TechIcons() {
             width={48}
           />
           <div className="text-sm font-medium">{text}</div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">
+          <p className="max-w-40 text-xs text-gray-500 dark:text-gray-400">
             {description}
           </p>
         </div>
