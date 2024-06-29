@@ -64,7 +64,7 @@ export default function TopProfiles() {
         </div>
         <div
           ref={scope}
-          className="mx-auto flex w-[4000px] max-w-6xl flex-row gap-6 overflow-x-scroll  p-6 md:grid md:w-full md:grid-cols-3  lg:grid-cols-3 xl:grid-cols-4"
+          className="no-scrollbar mx-auto flex w-[4000px] max-w-6xl flex-row gap-6 overflow-x-scroll p-6  md:grid md:w-full md:grid-cols-3 md:overflow-x-hidden  lg:grid-cols-3 xl:grid-cols-4"
         >
           {profiles?.slice(0, 8)?.map((profile) => (
             <div

@@ -6,7 +6,7 @@ import { Button } from "~/components/ui/button";
 import Image from "next/image";
 import { SendETH } from "~/components/ui/sendETH";
 import { Card, CardContent } from "~/components/ui/card";
-import { PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 import { Separator } from "~/components/ui/separator";
 import { MintCard } from "../../components/ui/mintCard";
 import { LensProfileCardSection } from "~/components/ui/lensProfile";

@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} scroll-smooth transition-transform duration-500`}
+      className={`${GeistSans.variable} scrollbar scroll-smooth transition-transform duration-500`}
     >
       <body>
         <div className="flex min-h-[100dvh] flex-col bg-[#1e1e1e] text-white">

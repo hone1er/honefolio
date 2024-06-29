@@ -3,14 +3,14 @@ import { AvatarImage, AvatarFallback, Avatar } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import { CardContent, Card } from "~/components/ui/card";
 import {
-  ProfileId,
+  type Profile,
+  type ProfileId,
   TriStateValue,
   useFollow,
   useLogin,
   useLogout,
   useProfile,
-  useProfileFollowers,
-  useProfiles,
+  useProfilesManaged,
   useUnfollow,
 } from "@lens-protocol/react-web";
 import { useAccount } from "wagmi";
@@ -21,17 +21,15 @@ import TopProfiles from "./topProfiles";
 export default function LensProfileLogin({
   isLoggedIn,
   setIsLoggedIn,
+  profile,
 }: {
   isLoggedIn: boolean;
   setIsLoggedIn: (value: boolean) => void;
+  profile: Profile;
 }) {
   const { address } = useAccount();
-  const { data: profiles } = useProfiles({
-    where: {
-      ownedBy: [address as string],
-    },
-  });
-  const data = profiles?.[0];
+
+  const data = profile;
 
   const { execute: executeLogin, loading: loadingLogin } = useLogin();
   const { execute: executeLogout, loading: loadingLogout } = useLogout();
@@ -169,10 +167,8 @@ export function LensProfileCard({ isLoggedIn }: { isLoggedIn: boolean }) {
 export function LensProfileCardSection() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { address } = useAccount();
-  const { data: profiles } = useProfiles({
-    where: {
-      ownedBy: [address as string],
-    },
+  const { data: profiles } = useProfilesManaged({
+    for: address!,
   });
   const data = profiles?.[0];
 
@@ -194,6 +190,7 @@ export function LensProfileCardSection() {
                   <LensProfileLogin
                     isLoggedIn={isLoggedIn}
                     setIsLoggedIn={setIsLoggedIn}
+                    profile={data}
                   />
                   <a
                     href="https://docs.lens.xyz/docs/what-is-lens"
